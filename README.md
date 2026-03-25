@@ -1,5 +1,7 @@
 # AgentBridge
 
+[![402 Index](https://img.shields.io/badge/402%20Index-AgentBridge-blue)](https://402index.io/service/agentbridge)
+
 > 让 AI 代理通过 x402 协议自动发起链上支付（USDC）的中间层
 
 ## 🚀 当前状态
