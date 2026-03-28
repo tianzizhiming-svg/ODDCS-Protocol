@@ -53,7 +53,7 @@ It converts messy web pages into clean, token-efficient Markdown — no API keys
 ---
 ## Resources
 
-- [Medium Article](https://medium.com/@leizhenbing/agentbridge-building-a-pay-per-fetch-gateway-for-ai-agents-on-base)
+- [Medium Articles](https://medium.com/@leizhenbing)
 
 ---
 ## Disclaimer
