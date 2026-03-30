@@ -8,7 +8,7 @@
 
 ReqCast 团队主动联系，使用 AgentBridge 完成完整的支付闭环测试：
 
-1. ReqCast 生成专用 API Key：`afie_72cfee4ce3ecffd474aa2af76f20d05f4e0faf59`
+1. ReqCast 生成专用 API Key：`afie_72cfee4ce3*********05f4e0faf59`
 2. 完成 x402 支付验证
 3. 认证回调成功送达 AgentBridge
 4. 链上支付到开发者钱包
