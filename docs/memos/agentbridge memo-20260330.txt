@@ -1,0 +1,55 @@
+AgentBridge 工作记录 - 2026-03-30
+
+【今日尝试】
+
+1. 添加 `/.well-known/agent.json` 端点
+   - 已添加到 main.py，重启服务
+   - 验证通过，返回正确的 JSON
+   - 私信告知 ReqCast（因 X 小红旗未解，无法公开回复）
+
+2. 尝试向 awesome-mcp-servers 列表提交项目
+   - Fork 仓库后，创建 PR 时遇到 404 错误
+   - 尝试多种方法（网页直传、命令行 push、切换网络）均失败
+   - 原因推测：原仓库可能限制外部分支比较或国内网络访问问题
+   - 最终决定：搁置，不继续折腾
+
+3. WSL Ubuntu（戏称“tututu”）环境配置
+   - 安装 Ubuntu 22.04，创建用户 agentuser
+   - 尝试安装 Homebrew 卡住（网络问题）
+   - 尝试用 pip 安装 mcp-publisher 未成功
+   - 结论：官方 MCP Registry 提交流程繁琐，暂不进行
+
+4. MCP Server 官方表单提交（突破进展）
+   - 提交地址：https://mcp.so/submit
+   - 状态：AgentBridge submitted successfully
+   - 服务器名称：AgentBridge
+   - 描述：A specialized gateway for AI agents to fetch and parse Chinese web content into clean Markdown. Pay-per-fetch via x402.
+   - 链接：https://github.com/tianzizhiming-svg/agentbridge
+   - 分类：Web Scraping / Data Fetching
+   - 联系邮箱：leizhenbing@126.com
+   - 等待审核邮件，后续状态待跟进
+
+【技术状态】
+- `/.well-known/agent.json` 已上线 ✅
+- 服务稳定运行，日志正常
+- X 账号仍处于临时限制状态（未确认是否解除）
+
+【待办】
+- 等 X 小红旗解除后，回复 ReqCast 并同步 Medium 文章
+- 4月2日发布张雪峰文章（信息平权主题）
+- 继续关注 PR #115 和 #1829 状态
+- 跟进 MCP Server 提交审核结果
+
+【今日教训】
+- 社区列表提交受阻，不硬扛，先放一放
+- 官方 MCP Registry 流程复杂，但找到了替代提交渠道（mcp.so）
+- “tututu”是 Ubuntu 的戏称，不是某个软件，记住了
+
+【明日计划】
+- 撰写张雪峰文章正文，打磨“信息平权”叙事
+- 整理 Base Builder 的 Builder Code 后续集成思路
+- 继续 X 静默，等待解封
+
+【备注】
+今天尝试了不少方向，虽然多数受阻，但明确了哪些路暂时走不通，也是一种进展。
+项目核心已经稳固，不急一时。
