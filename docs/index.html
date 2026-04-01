@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国高校教育情报库 (CUEI)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #1a2c3e;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        header {
+            background: linear-gradient(135deg, #0a2540, #0f3b5c);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .samples {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .sample {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            width: 200px;
+        }
+        .sample a {
+            text-decoration: none;
+            color: #0a5e8c;
+            font-weight: 500;
+        }
+        .sample a:hover {
+            text-decoration: underline;
+        }
+        .school-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.8rem;
+        }
+        .school-item {
+            background: #f8f9fa;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        .contact {
+            background: #e8f0fe;
+            border-left: 4px solid #0a5e8c;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: #6c757d;
+            font-size: 0.8rem;
+        }
+        button {
+            background: #0a5e8c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+        button:hover {
+            background: #0f3b5c;
+        }
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0a5e8c;
+        }
+        .province {
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #2c3e50;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 0.3rem;
+        }
+        details {
+            margin-bottom: 0.5rem;
+        }
+        summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #0a5e8c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📊 中国高校教育情报库 (CUEI)</h1>
+        <div class="subtitle">深度解读 · 数据驱动 · 跨境支付</div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>🎯 产品简介</h2>
+            <p>我们提供 <strong>2025届中国高校就业质量报告</strong> 和 <strong>本科教学质量报告</strong> 的专业深度解读，覆盖 27 所高校就业数据、16+ 学院教学数据，每份报告包含原始数据提取、横向对比、报考建议和风险提示。</p>
+            <p><strong>目标用户：</strong> 国际升学顾问、教育研究机构、AI 开发者、跨境教育平台。</p>
+            <p><span class="price">单价：30 USDC / 份</span>（通过 x402 协议支付，自动交付）</p>
+        </div>
+
+        <div class="card">
+            <h2>📥 免费样本</h2>
+            <p>点击下方链接下载完整报告，体验数据质量：</p>
+            <div class="samples">
+    <div class="sample">
+        <a href="samples/西安交通大学2025毕业生就业质量报告.pdf" target="_blank">西安交通大学<br>就业报告样本</a>
+    </div>
+    <div class="sample">
+        <a href="samples/广州南方学院2025毕业生就业质量报告.pdf" target="_blank">广州南方学院<br>就业报告样本</a>
+    </div>
+    <div class="sample">
+        <a href="samples/上海交通大学医学院2024-2025本科教学质量报告及解读/01-师资队伍.pdf" target="_blank">上海交通大学医学院<br>教学报告样本</a>
+    </div>
+</div>
+
+        <div class="card">
+            <h2>🏫 就业报告学校列表（27所）</h2>
+            <div class="school-list" id="employment-list">
+                <!-- 动态生成 -->
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📚 教学报告学院列表（16+）</h2>
+            <div id="teaching-list">
+                <!-- 动态生成 -->
+            </div>
+        </div>
+
+        <div class="card contact">
+            <h2>💡 购买方式</h2>
+            <p>1. 选择您需要的报告（就业报告按学校购买，教学报告按学院购买，每份 30 USDC）。</p>
+            <p>2. 通过 X 私信 <strong>@manniusl</strong> 告知报告名称，您将收到 ReqCast 支付链接。</p>
+            <p>3. 完成 USDC 支付后，报告将发送至您的邮箱（或提供下载链接）。</p>
+            <p><em>批量购买或机构合作请私信联系，可享折扣。</em></p>
+        </div>
+
+        <footer>
+            © 2026 AgentBridge · 数据持续更新中 · 最终解释权归 AgentBridge 所有
+        </footer>
+    </div>
+
+    <script>
+        // 就业报告数据（从 schools.json 提取，这里示例）
+        const employmentSchools = [
+            "内蒙古科技大学", "东北电力大学", "吉林警察学院", "长春大学", "宁夏职业技术大学",
+            "安徽信息工程学院", "山西水利职业技术学院", "广东财经大学", "广州南方学院",
+            "桂林电子科技大学", "昆山杜克大学", "信阳职业技术学院", "上海财经大学浙江学院",
+            "杭州职业技术大学", "浙江科技大学", "浙江药科职业大学", "浙江财经大学",
+            "温州大学", "湖北师范大学", "湖南应用技术学院", "大连科技学院",
+            "重庆师范大学", "重庆财经学院", "西安交通大学", "西安电子科技大学",
+            "香港中文大学（深圳）", "黑龙江财经学院"
+        ];
+
+        // 教学报告数据（从 colleges.json 提取，这里示例）
+        const teachingColleges = [
+            { school: "上海交通大学", college: "医学院" },
+            { school: "吉林大学", college: "东北亚学院" },
+            { school: "吉林大学", college: "人工智能学院" },
+            { school: "吉林大学", college: "化学学院" },
+            { school: "吉林大学", college: "数学学院" },
+            { school: "吉林大学", college: "文学院" },
+            { school: "吉林大学", college: "考古学院" },
+            { school: "江苏大学", college: "法学院" },
+            { school: "华北水利水电大学", college: "机械学院" },
+            { school: "华北水利水电大学", college: "电子工程学院" },
+            { school: "河南工程学院", college: "商学院" }
+        ];
+
+        const employmentListDiv = document.getElementById('employment-list');
+        employmentSchools.forEach(school => {
+            const div = document.createElement('div');
+            div.className = 'school-item';
+            div.textContent = school;
+            employmentListDiv.appendChild(div);
+        });
+
+        const teachingListDiv = document.getElementById('teaching-list');
+        const groups = {};
+        teachingColleges.forEach(item => {
+            if (!groups[item.school]) groups[item.school] = [];
+            groups[item.school].push(item.college);
+        });
+        for (const [school, colleges] of Object.entries(groups)) {
+            const details = document.createElement('details');
+            const summary = document.createElement('summary');
+            summary.textContent = `${school}（${colleges.length}个学院）`;
+            details.appendChild(summary);
+            const ul = document.createElement('ul');
+            colleges.forEach(col => {
+                const li = document.createElement('li');
+                li.textContent = col;
+                ul.appendChild(li);
+            });
+            details.appendChild(ul);
+            teachingListDiv.appendChild(details);
+        }
+    </script>
+</body>
+</html>
