@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "agentbridge": {
+      "command": "python",
+      "args": ["F:/afie_proxy/mcp_server/server.py"]
+    }
+  }
+}

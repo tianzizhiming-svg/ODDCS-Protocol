@@ -1,36 +1,64 @@
 # AgentBridge
 
-> 让 AI 代理通过 x402 协议自动发起链上支付（USDC）的中间层
+[![402 Index](https://img.shields.io/badge/402%20Index-AgentBridge-blue)](https://402index.io/directory?search=AgentBridge)
 
-## 🚀 当前状态
+AI agents pay-per-fetch to access Chinese web content (Xiaohongshu, Zhihu, etc.) — returns clean markdown, settled in USDC on Base via x402.
 
-✅ **技术验证完成** — 已跑通 AI 代理 → AgentBridge → ReqCast → 链上 USDC 收款完整闭环
+---
+> ⚠️ **Legal Notice**: By using this service, you agree to the [Legal Disclaimer](./DISCLAIMER.md).
 
-**链上收款记录：** 已成功收款 4 笔，合计 0.13625 USDC  
-🔗 [查看链上验证记录](./docs/verification.md)
+## What It Does
 
-## 🎯 项目定位
+AgentBridge helps AI agents access Chinese websites that are hard to parse due to:
+- JavaScript rendering
+- Anti-bot mechanisms
+- Complex HTML structure
 
-AgentBridge 是一个轻量中间层，让 AI 代理能够：
-- 自动识别需要支付的场景
-- 通过 x402 协议发起支付请求
-- 在 Base 链上完成 USDC 结算
+It converts messy web pages into clean, token-efficient Markdown — no API keys, no subscriptions.
 
-**一句话：让 AI 代理自己付钱。**
+---
 
-## 🤝 生态背书
+## Features
 
-- ✅ **ReqCast 官方对接** — 已完成端到端生产环境验证
-- ✅ **x402 生态贡献者** — 参与 [awesome-x402](https://github.com/xpayash/wesome-x402) 建设
-- ✅ **Base 链** — 基于 Base Mainnet 运行
+- **x402 Protocol**: Pay-per-fetch, settled in USDC on Base
+- **JavaScript Rendering**: Uses Playwright for dynamic content
+- **Clean Output**: HTML → Markdown distillation
+- **Agent Discovery**: `/.well-known/agent.json` endpoint for ReqCast
 
-## 🧱 技术栈
+---
 
-| 组件 | 说明 |
-|------|------|
-| x402 协议 | 支付请求标准化协议 |
-| ReqCast | 支付执行层，提供回调验证 |
-| Base 链 | L2 低成本结算 |
-| USDC | 支付代币 |
+## Pricing
 
-## 🔁 工作流程
+- **$0.003 per request** — paid in USDC on Base
+- No subscriptions, no minimums, no API keys
+
+---
+
+## Status
+
+- ✅ Live API: `https://api.060504.shop/v1/fetch/dynamic`
+- ✅ Listed on [402 Index](https://402index.io/directory?search=AgentBridge)
+- ✅ Verified with ReqCast
+- ✅ 4 on-chain payments received (0.13625 USDC)
+
+---
+
+## Quick Links
+
+- [402 Index Listing](https://402index.io/directory?search=AgentBridge)
+- [API Endpoint](https://api.060504.shop/v1/fetch/dynamic)
+- [Documentation](./docs/)
+- [Examples](./examples/)
+
+---
+## Resources
+
+- [Medium Articles](https://medium.com/@leizhenbing)
+- [AgentBridge: Building a Pay-Per-Fetch Gateway for AI Agents on Base](https://medium.com/@leizhenbing/agentbridge-building-a-pay-per-fetch-gateway-for-ai-agents-on-base)
+- [How AI Agents Can Legally Access Chinese Public Data](https://medium.com/p/6e956b24e4c1)
+
+---
+## Disclaimer
+
+This service fetches **publicly accessible** web content only.  
+Users are responsible for compliance with target websites' terms of service and applicable laws.
