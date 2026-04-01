@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中国高校教育情报库 (CUEI)</title>
+    <title>CUEI - China University Education Intelligence</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -52,15 +52,12 @@
             border-radius: 8px;
             padding: 1rem;
             text-align: center;
-            width: 200px;
+            width: 220px;
         }
         .sample a {
             text-decoration: none;
             color: #0a5e8c;
             font-weight: 500;
-        }
-        .sample a:hover {
-            text-decoration: underline;
         }
         .school-list {
             display: grid;
@@ -79,35 +76,20 @@
             padding: 1rem;
             margin-top: 2rem;
         }
+        .badge {
+            background-color: #0a5e8c;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
         footer {
             text-align: center;
             margin-top: 3rem;
             color: #6c757d;
             font-size: 0.8rem;
-        }
-        button {
-            background: #0a5e8c;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 0.5rem;
-        }
-        button:hover {
-            background: #0f3b5c;
-        }
-        .price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #0a5e8c;
-        }
-        .province {
-            margin-top: 1rem;
-            font-weight: bold;
-            color: #2c3e50;
-            border-bottom: 1px solid #dee2e6;
-            padding-bottom: 0.3rem;
         }
         details {
             margin-bottom: 0.5rem;
@@ -121,62 +103,60 @@
 </head>
 <body>
     <header>
-        <h1>📊 中国高校教育情报库 (CUEI)</h1>
-        <div class="subtitle">深度解读 · 数据驱动 · 跨境支付</div>
+        <h1>📊 China University Education Intelligence (CUEI)</h1>
+        <div class="subtitle">Institutional Data Service for Higher Education Insights</div>
     </header>
 
     <div class="container">
         <div class="card">
-            <h2>🎯 产品简介</h2>
-            <p>我们提供 <strong>2025届中国高校就业质量报告</strong> 和 <strong>本科教学质量报告</strong> 的专业深度解读，覆盖 27 所高校就业数据、16+ 学院教学数据，每份报告包含原始数据提取、横向对比、报考建议和风险提示。</p>
-            <p><strong>目标用户：</strong> 国际升学顾问、教育研究机构、AI 开发者、跨境教育平台。</p>
-            <p><span class="price">单价：30 USDC / 份</span>（通过 x402 协议支付，自动交付）</p>
+            <h2>🎯 Product Overview</h2>
+            <p><span class="badge">Institutional Licensing Only</span></p>
+            <p>Professional deep-dive analysis of <strong>2025 Chinese University Employment Reports</strong> and <strong>Undergraduate Teaching Quality Reports</strong>. Currently covering 27 universities (employment) and 16+ colleges (teaching). Each report includes extracted key metrics, peer comparisons, application recommendations, and risk notes.</p>
+            <p><strong>Target Users:</strong> International education consultants, research institutions, AI developers, cross-border education platforms.</p>
+            <p><strong>Pricing:</strong> Institutional licensing only – custom quotes available. Bulk purchases, annual subscriptions, and custom data packages are negotiable.</p>
+            <p>📩 <strong>Inquire:</strong> DM <strong>@manniusl</strong> on X or email <strong>leizhenbing@126.com</strong> for detailed pricing and sample reports.</p>
         </div>
 
         <div class="card">
-            <h2>📥 免费样本</h2>
-            <p>点击下方链接下载完整报告，体验数据质量：</p>
+            <h2>📥 Free Samples</h2>
+            <p>Download full reports to evaluate quality:</p>
             <div class="samples">
-    <div class="sample">
-        <a href="samples/西安交通大学2025毕业生就业质量报告.pdf" target="_blank">西安交通大学<br>就业报告样本</a>
-    </div>
-    <div class="sample">
-        <a href="samples/广州南方学院2025毕业生就业质量报告.pdf" target="_blank">广州南方学院<br>就业报告样本</a>
-    </div>
-    <div class="sample">
-        <a href="samples/上海交通大学医学院2024-2025本科教学质量报告及解读/01-师资队伍.pdf" target="_blank">上海交通大学医学院<br>教学报告样本</a>
-    </div>
-</div>
-
-        <div class="card">
-            <h2>🏫 就业报告学校列表（27所）</h2>
-            <div class="school-list" id="employment-list">
-                <!-- 动态生成 -->
+                <div class="sample">
+                    <a href="samples/西安交通大学2025毕业生就业质量报告.pdf" target="_blank">Xi’an Jiaotong University<br>Employment Sample</a>
+                </div>
+                <div class="sample">
+                    <a href="samples/广州南方学院2025毕业生就业质量报告.pdf" target="_blank">Guangzhou Nanfang College<br>Employment Sample</a>
+                </div>
+                <div class="sample">
+                    <a href="samples/上海交通大学医学院2024-2025本科教学质量报告及深度解读/01-师资队伍与教学投入.pdf" target="_blank">Shanghai Jiao Tong University<br>Teaching Sample (Faculty)</a>
+                </div>
             </div>
         </div>
 
         <div class="card">
-            <h2>📚 教学报告学院列表（16+）</h2>
-            <div id="teaching-list">
-                <!-- 动态生成 -->
-            </div>
+            <h2>🏫 Employment Reports – 27 Universities</h2>
+            <div class="school-list" id="employment-list"></div>
+        </div>
+
+        <div class="card">
+            <h2>📚 Teaching Reports – 16+ Colleges</h2>
+            <div id="teaching-list"></div>
         </div>
 
         <div class="card contact">
-            <h2>💡 购买方式</h2>
-            <p>1. 选择您需要的报告（就业报告按学校购买，教学报告按学院购买，每份 30 USDC）。</p>
-            <p>2. 通过 X 私信 <strong>@manniusl</strong> 告知报告名称，您将收到 ReqCast 支付链接。</p>
-            <p>3. 完成 USDC 支付后，报告将发送至您的邮箱（或提供下载链接）。</p>
-            <p><em>批量购买或机构合作请私信联系，可享折扣。</em></p>
+            <h2>💡 How to Purchase (Institutional)</h2>
+            <p>1. Contact us via X DM <strong>@manniusl</strong> or email <strong>leizhenbing@126.com</strong> with your organization name, intended use, and desired reports.</p>
+            <p>2. We will provide a custom quote and contract. Payment can be made in USDC (Base) or via bank transfer.</p>
+            <p>3. After payment, reports will be delivered via secure link or API – batch downloads and API access available.</p>
+            <p><em>Volume discounts and annual subscriptions available.</em></p>
         </div>
 
         <footer>
-            © 2026 AgentBridge · 数据持续更新中 · 最终解释权归 AgentBridge 所有
+            © 2026 AgentBridge · Data continuously updated · All rights reserved
         </footer>
     </div>
 
     <script>
-        // 就业报告数据（从 schools.json 提取，这里示例）
         const employmentSchools = [
             "内蒙古科技大学", "东北电力大学", "吉林警察学院", "长春大学", "宁夏职业技术大学",
             "安徽信息工程学院", "山西水利职业技术学院", "广东财经大学", "广州南方学院",
@@ -186,8 +166,6 @@
             "重庆师范大学", "重庆财经学院", "西安交通大学", "西安电子科技大学",
             "香港中文大学（深圳）", "黑龙江财经学院"
         ];
-
-        // 教学报告数据（从 colleges.json 提取，这里示例）
         const teachingColleges = [
             { school: "上海交通大学", college: "医学院" },
             { school: "吉林大学", college: "东北亚学院" },
@@ -201,16 +179,14 @@
             { school: "华北水利水电大学", college: "电子工程学院" },
             { school: "河南工程学院", college: "商学院" }
         ];
-
-        const employmentListDiv = document.getElementById('employment-list');
-        employmentSchools.forEach(school => {
+        const employmentDiv = document.getElementById('employment-list');
+        employmentSchools.forEach(s => {
             const div = document.createElement('div');
             div.className = 'school-item';
-            div.textContent = school;
-            employmentListDiv.appendChild(div);
+            div.textContent = s;
+            employmentDiv.appendChild(div);
         });
-
-        const teachingListDiv = document.getElementById('teaching-list');
+        const teachingDiv = document.getElementById('teaching-list');
         const groups = {};
         teachingColleges.forEach(item => {
             if (!groups[item.school]) groups[item.school] = [];
@@ -219,7 +195,7 @@
         for (const [school, colleges] of Object.entries(groups)) {
             const details = document.createElement('details');
             const summary = document.createElement('summary');
-            summary.textContent = `${school}（${colleges.length}个学院）`;
+            summary.textContent = `${school} (${colleges.length} colleges)`;
             details.appendChild(summary);
             const ul = document.createElement('ul');
             colleges.forEach(col => {
@@ -228,7 +204,7 @@
                 ul.appendChild(li);
             });
             details.appendChild(ul);
-            teachingListDiv.appendChild(details);
+            teachingDiv.appendChild(details);
         }
     </script>
 </body>
