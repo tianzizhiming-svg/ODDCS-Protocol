@@ -61,7 +61,7 @@
         }
         .school-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 0.8rem;
         }
         .school-item {
@@ -157,50 +157,76 @@
     </div>
 
     <script>
+        // 就业报告学校列表（中文名 + 英文名）
         const employmentSchools = [
-            "内蒙古科技大学", "东北电力大学", "吉林警察学院", "长春大学", "宁夏职业技术大学",
-            "安徽信息工程学院", "山西水利职业技术学院", "广东财经大学", "广州南方学院",
-            "桂林电子科技大学", "昆山杜克大学", "信阳职业技术学院", "上海财经大学浙江学院",
-            "杭州职业技术大学", "浙江科技大学", "浙江药科职业大学", "浙江财经大学",
-            "温州大学", "湖北师范大学", "湖南应用技术学院", "大连科技学院",
-            "重庆师范大学", "重庆财经学院", "西安交通大学", "西安电子科技大学",
-            "香港中文大学（深圳）", "黑龙江财经学院"
+            { cn: "内蒙古科技大学", en: "Inner Mongolia University of Science and Technology" },
+            { cn: "东北电力大学", en: "Northeast Electric Power University" },
+            { cn: "吉林警察学院", en: "Jilin Police College" },
+            { cn: "长春大学", en: "Changchun University" },
+            { cn: "宁夏职业技术大学", en: "Ningxia Vocational and Technical University" },
+            { cn: "安徽信息工程学院", en: "Anhui Institute of Information Technology" },
+            { cn: "山西水利职业技术学院", en: "Shanxi Vocational College of Water Conservancy" },
+            { cn: "广东财经大学", en: "Guangdong University of Finance & Economics" },
+            { cn: "广州南方学院", en: "Guangzhou Nanfang College" },
+            { cn: "桂林电子科技大学", en: "Guilin University of Electronic Technology" },
+            { cn: "昆山杜克大学", en: "Duke Kunshan University" },
+            { cn: "信阳职业技术学院", en: "Xinyang Vocational and Technical College" },
+            { cn: "上海财经大学浙江学院", en: "Shanghai University of Finance and Economics Zhejiang College" },
+            { cn: "杭州职业技术大学", en: "Hangzhou Vocational and Technical University" },
+            { cn: "浙江科技大学", en: "Zhejiang University of Science and Technology" },
+            { cn: "浙江药科职业大学", en: "Zhejiang Pharmaceutical University" },
+            { cn: "浙江财经大学", en: "Zhejiang University of Finance and Economics" },
+            { cn: "温州大学", en: "Wenzhou University" },
+            { cn: "湖北师范大学", en: "Hubei Normal University" },
+            { cn: "湖南应用技术学院", en: "Hunan University of Applied Technology" },
+            { cn: "大连科技学院", en: "Dalian Institute of Science and Technology" },
+            { cn: "重庆师范大学", en: "Chongqing Normal University" },
+            { cn: "重庆财经学院", en: "Chongqing College of Finance and Economics" },
+            { cn: "西安交通大学", en: "Xi’an Jiaotong University" },
+            { cn: "西安电子科技大学", en: "Xidian University" },
+            { cn: "香港中文大学（深圳）", en: "The Chinese University of Hong Kong, Shenzhen" },
+            { cn: "黑龙江财经学院", en: "Heilongjiang University of Finance and Economics" }
         ];
+
+        // 教学报告学院列表（学校名+学院名，显示英文用拼音，学院用英文意译）
         const teachingColleges = [
-            { school: "上海交通大学", college: "医学院" },
-            { school: "吉林大学", college: "东北亚学院" },
-            { school: "吉林大学", college: "人工智能学院" },
-            { school: "吉林大学", college: "化学学院" },
-            { school: "吉林大学", college: "数学学院" },
-            { school: "吉林大学", college: "文学院" },
-            { school: "吉林大学", college: "考古学院" },
-            { school: "江苏大学", college: "法学院" },
-            { school: "华北水利水电大学", college: "机械学院" },
-            { school: "华北水利水电大学", college: "电子工程学院" },
-            { school: "河南工程学院", college: "商学院" }
+            { school: "上海交通大学", college: "医学院", schoolEn: "Shanghai Jiao Tong University", collegeEn: "School of Medicine" },
+            { school: "吉林大学", college: "东北亚学院", schoolEn: "Jilin University", collegeEn: "Northeast Asian Studies College" },
+            { school: "吉林大学", college: "人工智能学院", schoolEn: "Jilin University", collegeEn: "School of Artificial Intelligence" },
+            { school: "吉林大学", college: "化学学院", schoolEn: "Jilin University", collegeEn: "College of Chemistry" },
+            { school: "吉林大学", college: "数学学院", schoolEn: "Jilin University", collegeEn: "School of Mathematics" },
+            { school: "吉林大学", college: "文学院", schoolEn: "Jilin University", collegeEn: "College of Humanities" },
+            { school: "吉林大学", college: "考古学院", schoolEn: "Jilin University", collegeEn: "School of Archaeology" },
+            { school: "江苏大学", college: "法学院", schoolEn: "Jiangsu University", collegeEn: "School of Law" },
+            { school: "华北水利水电大学", college: "机械学院", schoolEn: "North China University of Water Resources and Electric Power", collegeEn: "School of Mechanical Engineering" },
+            { school: "华北水利水电大学", college: "电子工程学院", schoolEn: "North China University of Water Resources and Electric Power", collegeEn: "School of Electronic Engineering" },
+            { school: "河南工程学院", college: "商学院", schoolEn: "Henan University of Engineering", collegeEn: "Business School" }
         ];
+
         const employmentDiv = document.getElementById('employment-list');
-        employmentSchools.forEach(s => {
+        employmentSchools.forEach(item => {
             const div = document.createElement('div');
             div.className = 'school-item';
-            div.textContent = s;
+            div.textContent = `${item.en} (${item.cn})`;
             employmentDiv.appendChild(div);
         });
+
         const teachingDiv = document.getElementById('teaching-list');
         const groups = {};
         teachingColleges.forEach(item => {
-            if (!groups[item.school]) groups[item.school] = [];
-            groups[item.school].push(item.college);
+            const key = item.schoolEn;
+            if (!groups[key]) groups[key] = { schoolCn: item.school, colleges: [] };
+            groups[key].colleges.push(item.collegeEn);
         });
-        for (const [school, colleges] of Object.entries(groups)) {
+        for (const [schoolEn, data] of Object.entries(groups)) {
             const details = document.createElement('details');
             const summary = document.createElement('summary');
-            summary.textContent = `${school} (${colleges.length} colleges)`;
+            summary.textContent = `${schoolEn} (${data.schoolCn}) – ${data.colleges.length} colleges`;
             details.appendChild(summary);
             const ul = document.createElement('ul');
-            colleges.forEach(col => {
+            data.colleges.forEach(colEn => {
                 const li = document.createElement('li');
-                li.textContent = col;
+                li.textContent = colEn;
                 ul.appendChild(li);
             });
             details.appendChild(ul);
