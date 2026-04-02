@@ -59,16 +59,36 @@
             color: #0a5e8c;
             font-weight: 500;
         }
-        .school-list {
+        .school-list, .college-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 0.8rem;
+            margin-top: 1rem;
         }
-        .school-item {
+        .list-item {
             background: #f8f9fa;
             padding: 0.5rem 1rem;
             border-radius: 6px;
             font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .buy-btn {
+            background-color: #0a5e8c;
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+        .soon-btn {
+            background-color: #adb5bd;
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: default;
         }
         .contact {
             background: #e8f0fe;
@@ -91,30 +111,6 @@
             color: #6c757d;
             font-size: 0.8rem;
         }
-        details {
-            margin-bottom: 0.5rem;
-        }
-        summary {
-            cursor: pointer;
-            font-weight: 500;
-            color: #0a5e8c;
-        }
-        .buy-link {
-            display: inline-block;
-            background-color: #0a5e8c;
-            color: white;
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            text-decoration: none;
-            margin-left: 1rem;
-            white-space: nowrap;
-        }
-        .inline-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
         .note-list {
             margin: 1rem 0 0 1rem;
             max-height: 400px;
@@ -126,26 +122,50 @@
             font-size: 0.85rem;
             padding: 0.3rem 0;
             border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .update-badge {
+            background-color: #ffc107;
+            color: #1a2c3e;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            margin-left: 0.5rem;
+        }
+        details {
+            margin-bottom: 0.5rem;
+        }
+        summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #0a5e8c;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>📊 China University Education Intelligence (CUEI)</h1>
-        <div class="subtitle">Institutional Data Service for Higher Education Insights</div>
+        <div class="subtitle">Professional Data Service for Higher Education</div>
     </header>
 
     <div class="container">
         <div class="card">
             <h2>🎯 Product Overview / 产品简介</h2>
             <p><span class="badge">Institutional Licensing Only / 仅限机构采购</span></p>
-            <p>Professional deep-dive analysis of <strong>2025 Chinese University Employment Reports</strong> and <strong>Undergraduate Teaching Quality Reports</strong>. Currently covering 27 universities (employment) and 11 colleges (teaching). Each report includes extracted key metrics, peer comparisons, application recommendations, and risk notes.</p>
-            <p><strong>Target Users / 目标用户:</strong> International education consultants, research institutions, AI developers, cross-border education platforms.</p>
-            <p><strong>Pricing / 定价:</strong> 90 USDC per report (employment per university, teaching per college, or full notes package).</p>
-            <p>📩 <strong>Inquire / 咨询:</strong> DM <strong>@manniusl</strong> on X or email <strong>leizhenbing@126.com</strong> with the item name. We will provide payment instructions (USDC on Base) and deliver the file after confirmation.</p>
+            <p>We provide professional deep-dive analysis of <strong>2025 Chinese University Employment Reports</strong> and <strong>Undergraduate Teaching Quality Reports</strong>, plus <strong>"15th Five-Year Plan" (2026-2030) strategic notes</strong> for college application decision-making.</p>
+            <p><strong>Current status / 当前状态:</strong><br>
+            - Employment reports: <strong>27 of 72</strong> are available for auto-purchase (x402). The remaining 45 will be added gradually.<br>
+            - Teaching reports: <strong>11 of 44</strong> are available for auto-purchase. The remaining 33 coming soon.<br>
+            - "15th Five-Year Plan" notes: <strong>All 41 articles</strong> are available for auto-purchase.<br>
+            ✅ More reports will be continuously added as official data is released – hundreds more expected.<br>
+            📌 <strong>Note:</strong> Items marked "Buy" support instant x402 payment (USDC on Base). Items marked "Coming Soon" are already interpreted but not yet integrated into the auto-purchase system – contact us if you need them urgently.</p>
+            <p><strong>定价 / Pricing:</strong> 90 USDC per report (employment per university, teaching per college, or full notes package).</p>
+            <p>📩 <strong>Inquire / 咨询:</strong> DM <strong>@manniusl</strong> on X or email <strong>leizhenbing@126.com</strong> for any questions.</p>
         </div>
 
-        <!-- 免费样本 / Free Samples -->
+        <!-- 免费样本 -->
         <div class="card">
             <h2>📥 免费样本 / Free Samples</h2>
             <p>下载完整报告以评估质量 / Download full reports to evaluate quality:</p>
@@ -167,46 +187,40 @@
                 </div>
             </div>
         </div>
-
-        <!-- 就业报告板块 -->
+        <!-- 就业报告板块（72所） -->
         <div class="card">
-            <h2>🏫 就业报告 / Employment Reports – 27 Universities (90 USDC each)</h2>
-            <p>点击“联系购买” / Click "Contact to Buy" to purchase any university report.</p>
+            <h2>🏫 就业报告 / Employment Reports – 72 Universities (90 USDC each)</h2>
+            <p>✅ <strong>27 available now</strong> (with "Buy" button) | ⏳ 45 coming soon | 更多报告持续更新中</p>
             <div class="school-list" id="employment-list"></div>
         </div>
 
-        <!-- 教学报告板块 -->
+        <!-- 教学报告板块（44个学院） -->
         <div class="card">
-            <h2>📚 教学报告 / Teaching Reports – 11 Colleges (90 USDC each, full 8 dimensions)</h2>
-            <p>点击“联系购买” / Click "Contact to Buy" to purchase any college report.</p>
-            <div id="teaching-list"></div>
+            <h2>📚 教学报告 / Teaching Reports – 44 Colleges (90 USDC each, full 8 dimensions)</h2>
+            <p>✅ <strong>11 available now</strong> | ⏳ 33 coming soon | 更多报告持续更新中</p>
+            <div class="college-list" id="teaching-list"></div>
         </div>
 
-        <!-- “十五五”笔记板块（含完整目录） -->
+        <!-- 十五五笔记板块 -->
         <div class="card">
             <h2>📘 “十五五”规划笔记 / "15th Five-Year Plan" Notes – 全套41篇 (90 USDC)</h2>
             <p>基于国家“十五五”规划的高考志愿填报深度分析合集 / Complete collection of strategic notes for college application decisions based on China's 2026-2030 plan.</p>
-            
-            <!-- 折叠目录 -->
             <details>
                 <summary>📑 查看全部41篇笔记目录 / View full list of 41 articles</summary>
-                <div class="note-list" id="note-list">
-                    <!-- 动态生成目录 -->
-                </div>
+                <div class="note-list" id="note-list"></div>
             </details>
-
-            <div class="inline-flex" style="justify-content: space-between; background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 6px; margin-top: 1rem;">
+            <div class="list-item" style="margin-top: 1rem;">
                 <span>📦 全套笔记 / Full package (41 articles)</span>
-                <a href="https://x.com/manniusl" target="_blank" class="buy-link">联系购买 / Contact to Buy</a>
+                <a href="https://api.060504.shop/v1/notes/15-5-package" class="buy-btn" target="_blank">购买 / Buy</a>
             </div>
         </div>
 
         <div class="card contact">
             <h2>💡 购买方式 / How to Purchase</h2>
-            <p>1. 通过 X 私信 <strong>@manniusl</strong> 或邮件 <strong>leizhenbing@126.com</strong> 告知需要的报告名称。</p>
-            <p>2. 我们会回复支付指引（Base 链 USDC，每份 90 USDC）。</p>
-            <p>3. 确认收款后，通过邮件或私信发送 PDF 文件。</p>
-            <p><em>批量购买可享折扣，欢迎咨询 / Volume discounts available for multiple purchases. Contact us for institutional pricing.</em></p>
+            <p>1. 点击报告旁的“购买”按钮，通过 x402 协议自动支付（需安装 MetaMask 等钱包）。</p>
+            <p>2. 支付成功后，系统将自动下载 PDF 文件。</p>
+            <p>3. 如遇问题或需要批量采购，请通过 X 私信 <strong>@manniusl</strong> 或邮件 <strong>leizhenbing@126.com</strong> 联系。</p>
+            <p><em>批量购买可享折扣，欢迎咨询 / Volume discounts available.</em></p>
         </div>
 
         <footer>
@@ -215,53 +229,131 @@
     </div>
 
     <script>
-        // 就业报告学校列表（中文名 + 英文名）
+        // 就业报告列表（72所，包含中英文名和上线状态）
         const employmentSchools = [
-            { cn: "内蒙古科技大学", en: "Inner Mongolia University of Science and Technology" },
-            { cn: "东北电力大学", en: "Northeast Electric Power University" },
-            { cn: "吉林警察学院", en: "Jilin Police College" },
-            { cn: "长春大学", en: "Changchun University" },
-            { cn: "宁夏职业技术大学", en: "Ningxia Vocational and Technical University" },
-            { cn: "安徽信息工程学院", en: "Anhui Institute of Information Technology" },
-            { cn: "山西水利职业技术学院", en: "Shanxi Vocational College of Water Conservancy" },
-            { cn: "广东财经大学", en: "Guangdong University of Finance & Economics" },
-            { cn: "广州南方学院", en: "Guangzhou Nanfang College" },
-            { cn: "桂林电子科技大学", en: "Guilin University of Electronic Technology" },
-            { cn: "昆山杜克大学", en: "Duke Kunshan University" },
-            { cn: "信阳职业技术学院", en: "Xinyang Vocational and Technical College" },
-            { cn: "上海财经大学浙江学院", en: "Shanghai University of Finance and Economics Zhejiang College" },
-            { cn: "杭州职业技术大学", en: "Hangzhou Vocational and Technical University" },
-            { cn: "浙江科技大学", en: "Zhejiang University of Science and Technology" },
-            { cn: "浙江药科职业大学", en: "Zhejiang Pharmaceutical University" },
-            { cn: "浙江财经大学", en: "Zhejiang University of Finance and Economics" },
-            { cn: "温州大学", en: "Wenzhou University" },
-            { cn: "湖北师范大学", en: "Hubei Normal University" },
-            { cn: "湖南应用技术学院", en: "Hunan University of Applied Technology" },
-            { cn: "大连科技学院", en: "Dalian Institute of Science and Technology" },
-            { cn: "重庆师范大学", en: "Chongqing Normal University" },
-            { cn: "重庆财经学院", en: "Chongqing College of Finance and Economics" },
-            { cn: "西安交通大学", en: "Xi'an Jiaotong University" },
-            { cn: "西安电子科技大学", en: "Xidian University" },
-            { cn: "香港中文大学（深圳）", en: "The Chinese University of Hong Kong, Shenzhen" },
-            { cn: "黑龙江财经学院", en: "Heilongjiang University of Finance and Economics" }
+            { cn: "北方工业大学", en: "North China University of Technology", available: false },
+            { cn: "浙江万里学院", en: "Zhejiang Wanli University", available: false },
+            { cn: "温州大学", en: "Wenzhou University", available: true },
+            { cn: "温州理工学院", en: "Wenzhou Institute of Technology", available: false },
+            { cn: "浙江科技大学", en: "Zhejiang University of Science and Technology", available: true },
+            { cn: "杭州电子科技大学信息工程学院", en: "Hangzhou Dianzi University Information Engineering College", available: false },
+            { cn: "浙江财经大学", en: "Zhejiang University of Finance and Economics", available: true },
+            { cn: "宁波工程学院", en: "Ningbo University of Technology", available: false },
+            { cn: "嘉兴南湖学院", en: "Jiaxing Nanhu College", available: false },
+            { cn: "杭州职业技术大学", en: "Hangzhou Vocational and Technical University", available: true },
+            { cn: "浙江工商大学杭州商学院", en: "Zhejiang Gongshang University Hangzhou College of Commerce", available: false },
+            { cn: "湖州学院", en: "Huzhou College", available: false },
+            { cn: "丽水学院", en: "Lishui University", available: false },
+            { cn: "浙江药科职业大学", en: "Zhejiang Pharmaceutical University", available: true },
+            { cn: "浙江工业大学之江学院", en: "Zhijiang College of Zhejiang University of Technology", available: false },
+            { cn: "上海财经大学浙江学院", en: "Shanghai University of Finance and Economics Zhejiang College", available: true },
+            { cn: "浙江师范大学行知学院", en: "Xingzhi College of Zhejiang Normal University", available: false },
+            { cn: "浙江财经大学东方学院", en: "Dongfang College of Zhejiang University of Finance and Economics", available: false },
+            { cn: "浙江同济科技职业学院", en: "Zhejiang Tongji Vocational College of Science and Technology", available: false },
+            { cn: "宁波大学", en: "Ningbo University", available: false },
+            { cn: "上海工程技术大学", en: "Shanghai University of Engineering Science", available: false },
+            { cn: "上海第二工业大学", en: "Shanghai Second Polytechnic University", available: false },
+            { cn: "西安电子科技大学", en: "Xidian University", available: true },
+            { cn: "西安交通大学", en: "Xi'an Jiaotong University", available: true },
+            { cn: "陕西科技大学", en: "Shaanxi University of Science and Technology", available: false },
+            { cn: "西安外国语大学", en: "Xi'an International Studies University", available: false },
+            { cn: "西安电力高等专科学校", en: "Xi'an Electric Power College", available: false },
+            { cn: "长春大学", en: "Changchun University", available: true },
+            { cn: "长春工业大学", en: "Changchun University of Technology", available: false },
+            { cn: "长春科技学院", en: "Changchun Institute of Technology", available: false },
+            { cn: "吉林建筑大学", en: "Jilin Jianzhu University", available: false },
+            { cn: "长春理工大学", en: "Changchun University of Science and Technology", available: false },
+            { cn: "东北电力大学", en: "Northeast Electric Power University", available: true },
+            { cn: "长春师范大学", en: "Changchun Normal University", available: false },
+            { cn: "长春工程学院", en: "Changchun Institute of Engineering", available: false },
+            { cn: "吉林警察学院", en: "Jilin Police College", available: true },
+            { cn: "吉林财经大学", en: "Jilin University of Finance and Economics", available: false },
+            { cn: "长春财经学院", en: "Changchun University of Finance and Economics", available: false },
+            { cn: "吉林农业科技学院", en: "Jilin Agricultural Science and Technology College", available: false },
+            { cn: "广东财经大学", en: "Guangdong University of Finance and Economics", available: true },
+            { cn: "广东培正学院", en: "Guangdong Peizheng College", available: false },
+            { cn: "广州南方学院", en: "Guangzhou Nanfang College", available: true },
+            { cn: "广东以色列理工学院", en: "Guangdong Technion-Israel Institute of Technology", available: false },
+            { cn: "桂林电子科技大学", en: "Guilin University of Electronic Technology", available: true },
+            { cn: "广西大学", en: "Guangxi University", available: false },
+            { cn: "芜湖学院", en: "Wuhu College", available: false },
+            { cn: "皖江工学院", en: "Wanjiang Institute of Technology", available: false },
+            { cn: "安徽信息工程学院", en: "Anhui Institute of Information Technology", available: true },
+            { cn: "宿州学院", en: "Suzhou University", available: false },
+            { cn: "安徽三联学院", en: "Anhui Sanlian University", available: false },
+            { cn: "芜湖职业技术大学", en: "Wuhu Vocational and Technical University", available: false },
+            { cn: "重庆财经学院", en: "Chongqing College of Finance and Economics", available: true },
+            { cn: "重庆师范大学", en: "Chongqing Normal University", available: true },
+            { cn: "重庆幼儿师范高等专科学校", en: "Chongqing Preschool Education College", available: false },
+            { cn: "大连科技学院", en: "Dalian Institute of Science and Technology", available: true },
+            { cn: "湖北师范大学", en: "Hubei Normal University", available: true },
+            { cn: "湖南应用技术学院", en: "Hunan University of Applied Technology", available: true },
+            { cn: "长沙师范学院", en: "Changsha Normal University", available: false },
+            { cn: "信阳职业技术学院", en: "Xinyang Vocational and Technical College", available: true },
+            { cn: "郑州升达经贸管理学院", en: "Zhengzhou Shengda University", available: false },
+            { cn: "山西水利职业技术学院", en: "Shanxi Vocational College of Water Conservancy", available: true },
+            { cn: "鄂尔多斯应用技术学院", en: "Ordos Institute of Applied Technology", available: false },
+            { cn: "内蒙古科技大学", en: "Inner Mongolia University of Science and Technology", available: true },
+            { cn: "昆山杜克大学", en: "Duke Kunshan University", available: true },
+            { cn: "黑龙江财经学院", en: "Heilongjiang University of Finance and Economics", available: true },
+            { cn: "哈尔滨学院", en: "Harbin University", available: false },
+            { cn: "黑龙江工商学院", en: "Heilongjiang University of Commerce", available: false },
+            { cn: "黑龙江科技大学", en: "Heilongjiang University of Science and Technology", available: false },
+            { cn: "齐齐哈尔工程学院", en: "Qiqihar Institute of Engineering", available: false },
+            { cn: "宁夏职业技术大学", en: "Ningxia Vocational and Technical University", available: true },
+            { cn: "青海大学", en: "Qinghai University", available: false },
+            { cn: "香港中文大学（深圳）", en: "The Chinese University of Hong Kong, Shenzhen", available: true }
         ];
 
-        // 教学报告学院列表
+        // 教学报告列表（44个学院，包含学校名、学院名、中英文、上线状态）
         const teachingColleges = [
-            { schoolCn: "上海交通大学", collegeCn: "医学院", schoolEn: "Shanghai Jiao Tong University", collegeEn: "School of Medicine" },
-            { schoolCn: "吉林大学", collegeCn: "东北亚学院", schoolEn: "Jilin University", collegeEn: "Northeast Asian Studies College" },
-            { schoolCn: "吉林大学", collegeCn: "人工智能学院", schoolEn: "Jilin University", collegeEn: "School of Artificial Intelligence" },
-            { schoolCn: "吉林大学", collegeCn: "化学学院", schoolEn: "Jilin University", collegeEn: "College of Chemistry" },
-            { schoolCn: "吉林大学", collegeCn: "数学学院", schoolEn: "Jilin University", collegeEn: "School of Mathematics" },
-            { schoolCn: "吉林大学", collegeCn: "文学院", schoolEn: "Jilin University", collegeEn: "College of Humanities" },
-            { schoolCn: "吉林大学", collegeCn: "考古学院", schoolEn: "Jilin University", collegeEn: "School of Archaeology" },
-            { schoolCn: "江苏大学", collegeCn: "法学院", schoolEn: "Jiangsu University", collegeEn: "School of Law" },
-            { schoolCn: "华北水利水电大学", collegeCn: "机械学院", schoolEn: "North China University of Water Resources and Electric Power", collegeEn: "School of Mechanical Engineering" },
-            { schoolCn: "华北水利水电大学", collegeCn: "电子工程学院", schoolEn: "North China University of Water Resources and Electric Power", collegeEn: "School of Electronic Engineering" },
-            { schoolCn: "河南工程学院", collegeCn: "商学院", schoolEn: "Henan University of Engineering", collegeEn: "Business School" }
+            { schoolCn: "吉林大学", collegeCn: "生命科学学院", schoolEn: "Jilin University", collegeEn: "College of Life Sciences", available: false },
+            { schoolCn: "吉林大学", collegeCn: "建设工程学院", schoolEn: "Jilin University", collegeEn: "College of Construction Engineering", available: false },
+            { schoolCn: "吉林大学", collegeCn: "电子科学与工程学院", schoolEn: "Jilin University", collegeEn: "College of Electronic Science and Engineering", available: false },
+            { schoolCn: "吉林大学", collegeCn: "外国语言文化学院", schoolEn: "Jilin University", collegeEn: "School of Foreign Languages", available: false },
+            { schoolCn: "吉林大学", collegeCn: "经济学院", schoolEn: "Jilin University", collegeEn: "School of Economics", available: false },
+            { schoolCn: "吉林大学", collegeCn: "软件学院", schoolEn: "Jilin University", collegeEn: "College of Software", available: false },
+            { schoolCn: "吉林大学", collegeCn: "人工智能学院", schoolEn: "Jilin University", collegeEn: "School of Artificial Intelligence", available: true },
+            { schoolCn: "吉林大学", collegeCn: "汽车工程学院", schoolEn: "Jilin University", collegeEn: "College of Automotive Engineering", available: false },
+            { schoolCn: "吉林大学", collegeCn: "化学学院", schoolEn: "Jilin University", collegeEn: "College of Chemistry", available: true },
+            { schoolCn: "吉林大学", collegeCn: "东北亚学院", schoolEn: "Jilin University", collegeEn: "Northeast Asian Studies College", available: true },
+            { schoolCn: "吉林大学", collegeCn: "哲学社会学院", schoolEn: "Jilin University", collegeEn: "School of Philosophy and Sociology", available: false },
+            { schoolCn: "吉林大学", collegeCn: "文学院", schoolEn: "Jilin University", collegeEn: "College of Humanities", available: true },
+            { schoolCn: "吉林大学", collegeCn: "法学院", schoolEn: "Jilin University", collegeEn: "School of Law", available: false },
+            { schoolCn: "吉林大学", collegeCn: "数学学院", schoolEn: "Jilin University", collegeEn: "School of Mathematics", available: true },
+            { schoolCn: "吉林大学", collegeCn: "物理学院", schoolEn: "Jilin University", collegeEn: "College of Physics", available: false },
+            { schoolCn: "吉林大学", collegeCn: "历史文化学院", schoolEn: "Jilin University", collegeEn: "School of History and Culture", available: false },
+            { schoolCn: "吉林大学", collegeCn: "考古学院", schoolEn: "Jilin University", collegeEn: "School of Archaeology", available: true },
+            { schoolCn: "吉林大学", collegeCn: "护理学院", schoolEn: "Jilin University", collegeEn: "School of Nursing", available: false },
+            { schoolCn: "吉林大学", collegeCn: "机械与航空航天工程学院", schoolEn: "Jilin University", collegeEn: "College of Mechanical and Aerospace Engineering", available: false },
+            { schoolCn: "吉林建筑大学", collegeCn: "无特定学院", schoolEn: "Jilin Jianzhu University", collegeEn: "General", available: false },
+            { schoolCn: "吉林工程技术师范学院", collegeCn: "无特定学院", schoolEn: "Jilin Engineering Normal University", collegeEn: "General", available: false },
+            { schoolCn: "吉林铁道职业技术大学", collegeCn: "无特定学院", schoolEn: "Jilin Railway Technology University", collegeEn: "General", available: false },
+            { schoolCn: "华北水利水电大学", collegeCn: "信息工程学院", schoolEn: "North China University of Water Resources and Electric Power", collegeEn: "School of Information Engineering", available: false },
+            { schoolCn: "华北水利水电大学", collegeCn: "电子工程学院", schoolEn: "North China University of Water Resources and Electric Power", collegeEn: "School of Electronic Engineering", available: true },
+            { schoolCn: "华北水利水电大学", collegeCn: "电气工程学院", schoolEn: "North China University of Water Resources and Electric Power", collegeEn: "School of Electrical Engineering", available: false },
+            { schoolCn: "华北水利水电大学", collegeCn: "机械学院", schoolEn: "North China University of Water Resources and Electric Power", collegeEn: "School of Mechanical Engineering", available: true },
+            { schoolCn: "河南工程学院", collegeCn: "商学院", schoolEn: "Henan University of Engineering", collegeEn: "Business School", available: true },
+            { schoolCn: "河南工程学院", collegeCn: "电气信息工程学院", schoolEn: "Henan University of Engineering", collegeEn: "School of Electrical and Information Engineering", available: false },
+            { schoolCn: "河南工程学院", collegeCn: "纺织工程学院", schoolEn: "Henan University of Engineering", collegeEn: "School of Textile Engineering", available: false },
+            { schoolCn: "西安明德理工学院", collegeCn: "无特定学院", schoolEn: "Xi'an Mingde Institute of Technology", collegeEn: "General", available: false },
+            { schoolCn: "延安大学", collegeCn: "经济与管理学院", schoolEn: "Yan'an University", collegeEn: "School of Economics and Management", available: false },
+            { schoolCn: "延安大学", collegeCn: "历史文化学院", schoolEn: "Yan'an University", collegeEn: "School of History and Culture", available: false },
+            { schoolCn: "深圳职业技术大学", collegeCn: "无特定学院", schoolEn: "Shenzhen Vocational and Technical University", collegeEn: "General", available: false },
+            { schoolCn: "广东轻工职业技术大学", collegeCn: "无特定学院", schoolEn: "Guangdong Light Industry Vocational and Technical University", collegeEn: "General", available: false },
+            { schoolCn: "鄂尔多斯应用技术学院", collegeCn: "无特定学院", schoolEn: "Ordos Institute of Applied Technology", collegeEn: "General", available: false },
+            { schoolCn: "呼伦贝尔学院", collegeCn: "无特定学院", schoolEn: "Hulunbuir University", collegeEn: "General", available: false },
+            { schoolCn: "内蒙古财经大学", collegeCn: "无特定学院", schoolEn: "Inner Mongolia University of Finance and Economics", collegeEn: "General", available: false },
+            { schoolCn: "内蒙古师范大学", collegeCn: "无特定学院", schoolEn: "Inner Mongolia Normal University", collegeEn: "General", available: false },
+            { schoolCn: "包头医学院", collegeCn: "无特定学院", schoolEn: "Baotou Medical College", collegeEn: "General", available: false },
+            { schoolCn: "湖北科技学院", collegeCn: "无特定学院", schoolEn: "Hubei University of Science and Technology", collegeEn: "General", available: false },
+            { schoolCn: "上海交通大学医学院", collegeCn: "无特定学院", schoolEn: "Shanghai Jiao Tong University School of Medicine", collegeEn: "General", available: true },
+            { schoolCn: "江苏大学法学院", collegeCn: "法学院", schoolEn: "Jiangsu University", collegeEn: "School of Law", available: true },
+            { schoolCn: "三亚学院", collegeCn: "无特定学院", schoolEn: "Sanya University", collegeEn: "General", available: false },
+            { schoolCn: "兰州工业学院", collegeCn: "无特定学院", schoolEn: "Lanzhou Institute of Technology", collegeEn: "General", available: false }
         ];
 
-        // 十五五笔记完整目录（41篇，按原顺序）
+        // 十五五笔记目录（41篇，与之前相同）
         const noteTitles = [
             "准备在上海发展的考生，2026年高考志愿填报时应重点关注上海十五五规划的内容及报考建议",
             "各省“十五五”规划中，哪些省份承诺扩大本科招生规模？",
@@ -308,30 +400,56 @@
 
         // 生成就业报告列表
         const employmentDiv = document.getElementById('employment-list');
-        employmentSchools.forEach(item => {
+        employmentSchools.forEach(school => {
             const div = document.createElement('div');
-            div.className = 'school-item inline-flex';
-            div.innerHTML = `<span>${item.cn} (${item.en})</span><a href="https://x.com/manniusl" target="_blank" class="buy-link">联系购买 / Contact to Buy</a>`;
+            div.className = 'list-item';
+            div.innerHTML = `<span>${school.cn} (${school.en})</span>${
+                school.available 
+                    ? `<a href="https://api.060504.shop/v1/reports/employment/${encodeURIComponent(school.cn)}" class="buy-btn" target="_blank">购买 / Buy</a>` 
+                    : `<span class="soon-btn">即将上线 / Coming Soon</span>`
+            }`;
             employmentDiv.appendChild(div);
         });
 
-        // 生成教学报告列表（按学校分组）
+        // 生成教学报告列表（按学校分组显示）
         const teachingDiv = document.getElementById('teaching-list');
-        const groups = {};
+        // 先按学校分组
+        const teachingGroups = {};
         teachingColleges.forEach(item => {
-            const key = item.schoolEn;
-            if (!groups[key]) groups[key] = { schoolCn: item.schoolCn, colleges: [] };
-            groups[key].colleges.push({ cn: item.collegeCn, en: item.collegeEn });
+            const key = item.schoolCn;
+            if (!teachingGroups[key]) {
+                teachingGroups[key] = {
+                    schoolCn: item.schoolCn,
+                    schoolEn: item.schoolEn,
+                    colleges: []
+                };
+            }
+            teachingGroups[key].colleges.push({
+                collegeCn: item.collegeCn,
+                collegeEn: item.collegeEn,
+                available: item.available
+            });
         });
-        for (const [schoolEn, data] of Object.entries(groups)) {
+        // 遍历分组生成折叠块
+        for (const [schoolCn, group] of Object.entries(teachingGroups)) {
             const details = document.createElement('details');
             const summary = document.createElement('summary');
-            summary.textContent = `${schoolEn} (${data.schoolCn}) – ${data.colleges.length} colleges`;
+            const totalColleges = group.colleges.length;
+            const availableCount = group.colleges.filter(c => c.available).length;
+            summary.textContent = `${group.schoolEn} (${schoolCn}) – ${totalColleges} colleges (${availableCount} available)`;
             details.appendChild(summary);
             const ul = document.createElement('ul');
-            data.colleges.forEach(col => {
+            group.colleges.forEach(col => {
                 const li = document.createElement('li');
-                li.textContent = `${col.cn} (${col.en})`;
+                li.style.display = 'flex';
+                li.style.justifyContent = 'space-between';
+                li.style.alignItems = 'center';
+                li.style.padding = '0.3rem 0';
+                li.innerHTML = `<span>${col.collegeCn} (${col.collegeEn})</span>${
+                    col.available 
+                        ? `<a href="https://api.060504.shop/v1/reports/teaching/${encodeURIComponent(schoolCn)}/${encodeURIComponent(col.collegeCn)}" class="buy-btn" target="_blank">购买 / Buy</a>` 
+                        : `<span class="soon-btn">即将上线 / Coming Soon</span>`
+                }`;
                 ul.appendChild(li);
             });
             details.appendChild(ul);
@@ -343,7 +461,7 @@
         noteTitles.forEach((title, idx) => {
             const div = document.createElement('div');
             div.className = 'note-item';
-            div.textContent = `${idx+1}. ${title}`;
+            div.innerHTML = `<span>${idx+1}. ${title}</span><a href="https://api.060504.shop/v1/notes/15-5-package" class="buy-btn" target="_blank">购买 / Buy</a>`;
             noteListDiv.appendChild(div);
         });
     </script>
