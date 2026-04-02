@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,7 +61,7 @@
         }
         .school-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 0.8rem;
         }
         .school-item {
@@ -99,6 +99,34 @@
             font-weight: 500;
             color: #0a5e8c;
         }
+        .buy-link {
+            display: inline-block;
+            background-color: #0a5e8c;
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            margin-left: 1rem;
+            white-space: nowrap;
+        }
+        .inline-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .note-list {
+            margin: 1rem 0 0 1rem;
+            max-height: 400px;
+            overflow-y: auto;
+            border-top: 1px solid #dee2e6;
+            padding-top: 0.5rem;
+        }
+        .note-item {
+            font-size: 0.85rem;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
     </style>
 </head>
 <body>
@@ -109,50 +137,80 @@
 
     <div class="container">
         <div class="card">
-            <h2>🎯 Product Overview</h2>
-            <p><span class="badge">Institutional Licensing Only</span></p>
-            <p>Professional deep-dive analysis of <strong>2025 Chinese University Employment Reports</strong> and <strong>Undergraduate Teaching Quality Reports</strong>. Currently covering 27 universities (employment) and 16+ colleges (teaching). Each report includes extracted key metrics, peer comparisons, application recommendations, and risk notes.</p>
-            <p><strong>Target Users:</strong> International education consultants, research institutions, AI developers, cross-border education platforms.</p>
-            <p><strong>Pricing:</strong> Institutional licensing only – custom quotes available. Bulk purchases, annual subscriptions, and custom data packages are negotiable.</p>
-            <p>📩 <strong>Inquire:</strong> DM <strong>@manniusl</strong> on X or email <strong>leizhenbing@126.com</strong> for detailed pricing and sample reports.</p>
+            <h2>🎯 Product Overview / 产品简介</h2>
+            <p><span class="badge">Institutional Licensing Only / 仅限机构采购</span></p>
+            <p>Professional deep-dive analysis of <strong>2025 Chinese University Employment Reports</strong> and <strong>Undergraduate Teaching Quality Reports</strong>. Currently covering 27 universities (employment) and 11 colleges (teaching). Each report includes extracted key metrics, peer comparisons, application recommendations, and risk notes.</p>
+            <p><strong>Target Users / 目标用户:</strong> International education consultants, research institutions, AI developers, cross-border education platforms.</p>
+            <p><strong>Pricing / 定价:</strong> 90 USDC per report (employment per university, teaching per college, or full notes package).</p>
+            <p>📩 <strong>Inquire / 咨询:</strong> DM <strong>@manniusl</strong> on X or email <strong>leizhenbing@126.com</strong> with the item name. We will provide payment instructions (USDC on Base) and deliver the file after confirmation.</p>
         </div>
 
+        <!-- 免费样本 / Free Samples -->
         <div class="card">
-            <h2>📥 Free Samples</h2>
-            <p>Download full reports to evaluate quality:</p>
+            <h2>📥 免费样本 / Free Samples</h2>
+            <p>下载完整报告以评估质量 / Download full reports to evaluate quality:</p>
             <div class="samples">
                 <div class="sample">
-                    <a href="samples/西安交通大学2025毕业生就业质量报告.pdf" target="_blank">Xi’an Jiaotong University<br>Employment Sample</a>
+                    <a href="samples/西安交通大学2025毕业生就业质量报告.pdf" target="_blank">
+                        西安交通大学 Xi'an Jiaotong University<br>就业报告样本 Employment Sample
+                    </a>
                 </div>
                 <div class="sample">
-                    <a href="samples/广州南方学院2025毕业生就业质量报告.pdf" target="_blank">Guangzhou Nanfang College<br>Employment Sample</a>
+                    <a href="samples/广州南方学院2025毕业生就业质量报告.pdf" target="_blank">
+                        广州南方学院 Guangzhou Nanfang College<br>就业报告样本 Employment Sample
+                    </a>
                 </div>
                 <div class="sample">
-                    <a href="samples/上海交通大学医学院2024-2025本科教学质量报告及深度解读/01-师资队伍与教学投入.pdf" target="_blank">Shanghai Jiao Tong University<br>Teaching Sample (Faculty)</a>
+                    <a href="samples/上海交通大学医学院2024-2025本科教学质量报告及深度解读/01-师资队伍与教学投入.pdf" target="_blank">
+                        上海交通大学医学院 Shanghai Jiao Tong University<br>教学报告样本 Teaching Sample (Faculty)
+                    </a>
                 </div>
             </div>
         </div>
 
+        <!-- 就业报告板块 -->
         <div class="card">
-            <h2>🏫 Employment Reports – 27 Universities</h2>
+            <h2>🏫 就业报告 / Employment Reports – 27 Universities (90 USDC each)</h2>
+            <p>点击“联系购买” / Click "Contact to Buy" to purchase any university report.</p>
             <div class="school-list" id="employment-list"></div>
         </div>
 
+        <!-- 教学报告板块 -->
         <div class="card">
-            <h2>📚 Teaching Reports – 16+ Colleges</h2>
+            <h2>📚 教学报告 / Teaching Reports – 11 Colleges (90 USDC each, full 8 dimensions)</h2>
+            <p>点击“联系购买” / Click "Contact to Buy" to purchase any college report.</p>
             <div id="teaching-list"></div>
         </div>
 
+        <!-- “十五五”笔记板块（含完整目录） -->
+        <div class="card">
+            <h2>📘 “十五五”规划笔记 / "15th Five-Year Plan" Notes – 全套41篇 (90 USDC)</h2>
+            <p>基于国家“十五五”规划的高考志愿填报深度分析合集 / Complete collection of strategic notes for college application decisions based on China's 2026-2030 plan.</p>
+            
+            <!-- 折叠目录 -->
+            <details>
+                <summary>📑 查看全部41篇笔记目录 / View full list of 41 articles</summary>
+                <div class="note-list" id="note-list">
+                    <!-- 动态生成目录 -->
+                </div>
+            </details>
+
+            <div class="inline-flex" style="justify-content: space-between; background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 6px; margin-top: 1rem;">
+                <span>📦 全套笔记 / Full package (41 articles)</span>
+                <a href="https://x.com/manniusl" target="_blank" class="buy-link">联系购买 / Contact to Buy</a>
+            </div>
+        </div>
+
         <div class="card contact">
-            <h2>💡 How to Purchase (Institutional)</h2>
-            <p>1. Contact us via X DM <strong>@manniusl</strong> or email <strong>leizhenbing@126.com</strong> with your organization name, intended use, and desired reports.</p>
-            <p>2. We will provide a custom quote and contract. Payment can be made in USDC (Base) or via bank transfer.</p>
-            <p>3. After payment, reports will be delivered via secure link or API – batch downloads and API access available.</p>
-            <p><em>Volume discounts and annual subscriptions available.</em></p>
+            <h2>💡 购买方式 / How to Purchase</h2>
+            <p>1. 通过 X 私信 <strong>@manniusl</strong> 或邮件 <strong>leizhenbing@126.com</strong> 告知需要的报告名称。</p>
+            <p>2. 我们会回复支付指引（Base 链 USDC，每份 90 USDC）。</p>
+            <p>3. 确认收款后，通过邮件或私信发送 PDF 文件。</p>
+            <p><em>批量购买可享折扣，欢迎咨询 / Volume discounts available for multiple purchases. Contact us for institutional pricing.</em></p>
         </div>
 
         <footer>
-            © 2026 AgentBridge · Data continuously updated · All rights reserved
+            © 2026 AgentBridge · 数据持续更新 / Data continuously updated · All rights reserved
         </footer>
     </div>
 
@@ -182,41 +240,88 @@
             { cn: "大连科技学院", en: "Dalian Institute of Science and Technology" },
             { cn: "重庆师范大学", en: "Chongqing Normal University" },
             { cn: "重庆财经学院", en: "Chongqing College of Finance and Economics" },
-            { cn: "西安交通大学", en: "Xi’an Jiaotong University" },
+            { cn: "西安交通大学", en: "Xi'an Jiaotong University" },
             { cn: "西安电子科技大学", en: "Xidian University" },
             { cn: "香港中文大学（深圳）", en: "The Chinese University of Hong Kong, Shenzhen" },
             { cn: "黑龙江财经学院", en: "Heilongjiang University of Finance and Economics" }
         ];
 
-        // 教学报告学院列表（学校名+学院名，显示英文用拼音，学院用英文意译）
+        // 教学报告学院列表
         const teachingColleges = [
-            { school: "上海交通大学", college: "医学院", schoolEn: "Shanghai Jiao Tong University", collegeEn: "School of Medicine" },
-            { school: "吉林大学", college: "东北亚学院", schoolEn: "Jilin University", collegeEn: "Northeast Asian Studies College" },
-            { school: "吉林大学", college: "人工智能学院", schoolEn: "Jilin University", collegeEn: "School of Artificial Intelligence" },
-            { school: "吉林大学", college: "化学学院", schoolEn: "Jilin University", collegeEn: "College of Chemistry" },
-            { school: "吉林大学", college: "数学学院", schoolEn: "Jilin University", collegeEn: "School of Mathematics" },
-            { school: "吉林大学", college: "文学院", schoolEn: "Jilin University", collegeEn: "College of Humanities" },
-            { school: "吉林大学", college: "考古学院", schoolEn: "Jilin University", collegeEn: "School of Archaeology" },
-            { school: "江苏大学", college: "法学院", schoolEn: "Jiangsu University", collegeEn: "School of Law" },
-            { school: "华北水利水电大学", college: "机械学院", schoolEn: "North China University of Water Resources and Electric Power", collegeEn: "School of Mechanical Engineering" },
-            { school: "华北水利水电大学", college: "电子工程学院", schoolEn: "North China University of Water Resources and Electric Power", collegeEn: "School of Electronic Engineering" },
-            { school: "河南工程学院", college: "商学院", schoolEn: "Henan University of Engineering", collegeEn: "Business School" }
+            { schoolCn: "上海交通大学", collegeCn: "医学院", schoolEn: "Shanghai Jiao Tong University", collegeEn: "School of Medicine" },
+            { schoolCn: "吉林大学", collegeCn: "东北亚学院", schoolEn: "Jilin University", collegeEn: "Northeast Asian Studies College" },
+            { schoolCn: "吉林大学", collegeCn: "人工智能学院", schoolEn: "Jilin University", collegeEn: "School of Artificial Intelligence" },
+            { schoolCn: "吉林大学", collegeCn: "化学学院", schoolEn: "Jilin University", collegeEn: "College of Chemistry" },
+            { schoolCn: "吉林大学", collegeCn: "数学学院", schoolEn: "Jilin University", collegeEn: "School of Mathematics" },
+            { schoolCn: "吉林大学", collegeCn: "文学院", schoolEn: "Jilin University", collegeEn: "College of Humanities" },
+            { schoolCn: "吉林大学", collegeCn: "考古学院", schoolEn: "Jilin University", collegeEn: "School of Archaeology" },
+            { schoolCn: "江苏大学", collegeCn: "法学院", schoolEn: "Jiangsu University", collegeEn: "School of Law" },
+            { schoolCn: "华北水利水电大学", collegeCn: "机械学院", schoolEn: "North China University of Water Resources and Electric Power", collegeEn: "School of Mechanical Engineering" },
+            { schoolCn: "华北水利水电大学", collegeCn: "电子工程学院", schoolEn: "North China University of Water Resources and Electric Power", collegeEn: "School of Electronic Engineering" },
+            { schoolCn: "河南工程学院", collegeCn: "商学院", schoolEn: "Henan University of Engineering", collegeEn: "Business School" }
         ];
 
+        // 十五五笔记完整目录（41篇，按原顺序）
+        const noteTitles = [
+            "准备在上海发展的考生，2026年高考志愿填报时应重点关注上海十五五规划的内容及报考建议",
+            "各省“十五五”规划中，哪些省份承诺扩大本科招生规模？",
+            "各省“十五五”规划中，是否将“教育强省”或“人才高地”作为核心目标？",
+            "十五五”期间，国家明确支持哪些战略性新兴产业？这些产业在哪些省份布局最密集？",
+            "江苏省十五五规划为2026年参加高考的考生准备了哪些机会？",
+            "边境省份（如广西、云南、内蒙古）如何依托“一带一路”加强跨境人才培养？是否有小语种+经贸复合型专业培养计划？",
+            "沿海省份（如广东、浙江、江苏、山东）是否推动“制造业数字化转型”？哪些高职/应用型本科院校已与龙头企业共建产业学院？",
+            "人口结构变化（如少子化、老龄化）如何影响各省教育投入和专业需求？",
+            "“十五五”强调“科技自立自强”，对应设有专项培养计划的高校有哪些？",
+            "“十五五”强调“科技自立自强”，哪些省份重点建设集成电路、人工智能、生物制造等未来产业？",
+            "“十五五”规划中，提出打造“中心城市”或“都市圈”的有哪些？这会带来哪些高校资源集聚效应？",
+            "哪些省份计划在“十五五”期间大力引进985/双一流高校设立分校或研究院？",
+            "在浙江省十五五规划中，哪些传统专业正在被“改造升级”？",
+            "“十五五”规划中高频出现的十大专业方向有哪些？",
+            "若目标是“考研深造”，哪些高校在“十五五”期间新建国家重点实验室或博士点？",
+            "省属重点高校是否获得“十五五”专项资金支持？哪些学校有望冲击“双一流”？",
+            "中外合作办学是否受“十五五”国际化政策支持？哪些项目性价比高（如4+0、2+2）且可获教育部认证？",
+            "在“十五五”产业导向下，史地政选科组合最适合哪些专业群？",
+            "若目标是“稳定就业”，应优先选择哪些有“政府订单”“国企签约”保障的专业？如电力、铁路、水利、烟草、电网相关专业",
+            "各省十五五规划中，哪些新兴交叉学科将在2026年首次大规模招生？",
+            "“十五五”规划中一再强调“工匠精神”和“技能中国”，那么高级技工、技师学院毕业生是否可直接对接本科或考研？",
+            "家庭经济条件一般，如何利用“十五五”教育公平政策（如助学贷款、学费减免、订单班）降低求学成本？",
+            "在“十五五”产业导向下，物化生选科组合最适合哪些专业群？",
+            "国家“十五五”最鼓励发展的十大专业方向是什么？",
+            "“十五五”期间，北京、上海、广东、江苏、浙江、安徽、四川重点发展的产业有哪些？",
+            "哪些省份被国家定位为“科技创新中心”“先进制造基地”或“数字经济高地”？",
+            "计划新建本科院校或职业本科大学的省份有哪些？2026年招生吗？",
+            "“十五五”是否强调“技能型人才”？职业本科和普通本科在考公、考研上真的一样吗？",
+            "“东数西算”、“西部陆海新通道”、“东北振兴”这些国家战略，对哪些省的未来发展影响最大？",
+            "哪些城市正在建“大学城”或“科教园区”？未来教育资源会集中吗？",
+            "哪些传统专业正在被改造升级？（如土木→智能建造，机械→智能制造）",
+            "鼓励大学生“留省就业的省份有哪些”？有哪些补贴或落户政策？",
+            "规划里对高等教育和人才培养有哪些具体说法？是否提到要重点扶持某些大学或学科？",
+            "各省在“十五五”中的产业定位差异是什么？（如江苏侧重智能制造、四川聚焦生物医药）",
+            "绿色转型政策下，环境科学与工程专业为何成为“黄金赛道”？",
+            "哪些城市被列为“宜居韧性城市”试点？当地高校是否有政策倾斜？",
+            "规划中提出的“现代化产业体系”包含哪些专业领域？与传统工科有何区别？",
+            "国家“安全与发展统筹”方针会带动哪些小众专业（如公共安全、应急管理）？",
+            "重点产业，主要规划在哪些城市或新区聚集发展？（例如：是否在省会、某国家级新区或经济开发区？）",
+            "“十五五”规划中被列为重点支持的高校有哪些？具体有哪些政策倾斜（如科研经费、实验室建设）？",
+            "如何利用地方专项计划报考省内优势产业对应的大学？"
+        ];
+
+        // 生成就业报告列表
         const employmentDiv = document.getElementById('employment-list');
         employmentSchools.forEach(item => {
             const div = document.createElement('div');
-            div.className = 'school-item';
-            div.textContent = `${item.en} (${item.cn})`;
+            div.className = 'school-item inline-flex';
+            div.innerHTML = `<span>${item.cn} (${item.en})</span><a href="https://x.com/manniusl" target="_blank" class="buy-link">联系购买 / Contact to Buy</a>`;
             employmentDiv.appendChild(div);
         });
 
+        // 生成教学报告列表（按学校分组）
         const teachingDiv = document.getElementById('teaching-list');
         const groups = {};
         teachingColleges.forEach(item => {
             const key = item.schoolEn;
-            if (!groups[key]) groups[key] = { schoolCn: item.school, colleges: [] };
-            groups[key].colleges.push(item.collegeEn);
+            if (!groups[key]) groups[key] = { schoolCn: item.schoolCn, colleges: [] };
+            groups[key].colleges.push({ cn: item.collegeCn, en: item.collegeEn });
         });
         for (const [schoolEn, data] of Object.entries(groups)) {
             const details = document.createElement('details');
@@ -224,14 +329,23 @@
             summary.textContent = `${schoolEn} (${data.schoolCn}) – ${data.colleges.length} colleges`;
             details.appendChild(summary);
             const ul = document.createElement('ul');
-            data.colleges.forEach(colEn => {
+            data.colleges.forEach(col => {
                 const li = document.createElement('li');
-                li.textContent = colEn;
+                li.textContent = `${col.cn} (${col.en})`;
                 ul.appendChild(li);
             });
             details.appendChild(ul);
             teachingDiv.appendChild(details);
         }
+
+        // 生成十五五笔记目录
+        const noteListDiv = document.getElementById('note-list');
+        noteTitles.forEach((title, idx) => {
+            const div = document.createElement('div');
+            div.className = 'note-item';
+            div.textContent = `${idx+1}. ${title}`;
+            noteListDiv.appendChild(div);
+        });
     </script>
 </body>
 </html>
