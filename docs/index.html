@@ -18,7 +18,7 @@
         .sample a { text-decoration: none; color: #0a5e8c; font-weight: 500; }
         .school-list, .college-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 0.8rem; margin-top: 1rem; }
         .list-item { background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; }
-        .buy-btn { background-color: #0a5e8c; color: white; padding: 0.2rem 0.8rem; border-radius: 20px; text-decoration: none; font-size: 0.8rem; }
+        .buy-btn { background-color: #0a5e8c; color: white; padding: 0.2rem 0.8rem; border-radius: 20px; text-decoration: none; font-size: 0.8rem; cursor: pointer; }
         .buy-btn:hover { background-color: #0d7ab8; }
         .soon-btn { background-color: #adb5bd; color: white; padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.8rem; cursor: default; }
         .contact { background: #e8f0fe; border-left: 4px solid #0a5e8c; padding: 1rem; margin-top: 2rem; }
@@ -31,15 +31,48 @@
         .update-badge { background-color: #ffc107; color: #1a2c3e; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.7rem; margin-left: 0.5rem; }
         .lang-toggle { position: fixed; top: 1rem; right: 1rem; z-index: 1000; background: white; border: 1px solid #dee2e6; border-radius: 20px; padding: 0.3rem 0.8rem; cursor: pointer; font-size: 0.85rem; color: #0a5e8c; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .lang-toggle:hover { background: #f0f4f8; }
+
+        /* ====== 购买引导弹窗 ====== */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; justify-content: center; align-items: center; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: white; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 560px; width: 90%; max-height: 85vh; overflow-y: auto; padding: 0; }
+        .modal-header { background: linear-gradient(135deg, #0a2540, #0f3b5c); color: white; padding: 1.5rem 2rem; border-radius: 16px 16px 0 0; display: flex; justify-content: space-between; align-items: center; }
+        .modal-header h3 { margin: 0; font-size: 1.2rem; }
+        .modal-close { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; padding: 0 0.2rem; line-height: 1; }
+        .modal-close:hover { opacity: 0.7; }
+        .modal-body { padding: 1.5rem 2rem 2rem; }
+        .modal-product { background: #f0f7ff; border: 1px solid #d0e3f7; border-radius: 10px; padding: 1rem; margin-bottom: 1.5rem; }
+        .modal-product .product-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.3rem; }
+        .modal-product .product-price { color: #0a5e8c; font-weight: 700; font-size: 1.1rem; }
+        .step-list { list-style: none; padding: 0; margin: 0 0 1.5rem 0; }
+        .step-list li { padding: 0.6rem 0; padding-left: 2.2rem; position: relative; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+        .step-list li:last-child { border-bottom: none; }
+        .step-list li::before { content: attr(data-step); position: absolute; left: 0; top: 0.6rem; background: #0a5e8c; color: white; width: 1.6rem; height: 1.6rem; border-radius: 50%; text-align: center; line-height: 1.6rem; font-size: 0.75rem; font-weight: 700; }
+        .step-list li a { color: #0a5e8c; text-decoration: underline; }
+        .step-list li a:hover { color: #0d7ab8; }
+        .modal-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+        .btn-primary { background: #0a5e8c; color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 8px; font-size: 0.95rem; cursor: pointer; font-weight: 600; }
+        .btn-primary:hover { background: #0d7ab8; }
+        .btn-secondary { background: #f0f4f8; color: #1a2c3e; border: 1px solid #dee2e6; padding: 0.7rem 1.5rem; border-radius: 8px; font-size: 0.95rem; cursor: pointer; }
+        .btn-secondary:hover { background: #e2e8f0; }
+        .btn-back { background: #6c757d; color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 8px; font-size: 0.95rem; cursor: pointer; }
+        .btn-back:hover { background: #5a6268; }
+        .modal-note { margin-top: 1rem; padding: 0.8rem; background: #fff8e1; border-left: 4px solid #ffc107; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #664d03; }
+        .modal-divider { border: none; border-top: 1px solid #e9ecef; margin: 1.2rem 0; }
+        .modal-faq { font-size: 0.85rem; color: #495057; }
+        .modal-faq summary { font-weight: 600; color: #1a2c3e; margin-bottom: 0.3rem; }
+        .modal-faq p { margin: 0 0 0.8rem 0; }
     </style>
 </head>
 <body>
     <button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button>
+
     <header>
         <div class="logo">🎓</div>
         <h1 id="headerTitle">China University Education Intelligence (CUEI)</h1>
         <div class="subtitle" id="headerSubtitle">Professional Data Service for Higher Education</div>
     </header>
+
     <div class="container">
         <div class="card">
             <h2 id="overviewTitle">🎯 Product Overview / 产品简介</h2>
@@ -49,10 +82,11 @@
             - Employment reports: <strong>27 of 72</strong> available for auto-purchase (x402). The remaining 45 will be added gradually.<br>
             - Teaching reports: <strong>11 of 44</strong> available for auto-purchase. The remaining 33 coming soon.<br>
             - "15th Five-Year Plan" notes: <strong>All 41 articles</strong> available for auto-purchase.<br>
-            ✅ More reports will be continuously added as official data is released  hundreds more expected.</p>
+            ✅ More reports will be continuously added as official data is released – hundreds more expected.</p>
             <p id="pricingText"><strong>定价 / Pricing:</strong> 90 USDC per report (employment per university, teaching per college, or full notes package).</p>
             <p id="contactText">📩 <strong>Inquire / 咨询:</strong> DM <strong>@manniusl</strong> on X or email <strong>leizhenbing@126.com</strong> for any questions.</p>
         </div>
+
         <div class="card">
             <h2 id="sampleTitle">📥 免费样本 / Free Samples</h2>
             <p id="sampleDesc">下载完整报告以评估质量 / Download full reports to evaluate quality:</p>
@@ -68,18 +102,21 @@
                 </div>
             </div>
         </div>
+
         <div class="card">
-            <h2 id="employmentTitle">🏫 就业报告 / Employment Reports  27 of 72 available (90 USDC each)</h2>
+            <h2 id="employmentTitle">🏫 就业报告 / Employment Reports – 27 of 72 available (90 USDC each)</h2>
             <p id="employmentDesc">✅ 已上线学校列表，点击"购买"通过 x402 自动支付</p>
             <div class="school-list" id="employment-list"></div>
         </div>
+
         <div class="card">
-            <h2 id="teachingTitle">📚 教学报告 / Teaching Reports  11 of 44 available (90 USDC each, full 8 dimensions)</h2>
+            <h2 id="teachingTitle">📚 教学报告 / Teaching Reports – 11 of 44 available (90 USDC each, full 8 dimensions)</h2>
             <p id="teachingDesc">✅ 已上线学院列表，点击"购买"通过 x402 自动支付</p>
             <div id="teaching-list"></div>
         </div>
+
         <div class="card">
-            <h2 id="notesTitle">📘 "十五五"规划笔记 / "15th Five-Year Plan" Notes  全套41篇 (90 USDC)</h2>
+            <h2 id="notesTitle">📘 "十五五"规划笔记 / "15th Five-Year Plan" Notes – 全套41篇 (90 USDC)</h2>
             <p id="notesDesc">基于国家"十五五"规划的高考志愿填报深度分析合集 / Complete collection of strategic notes for college application decisions based on China's 2026-2030 plan.</p>
             <details>
                 <summary id="notesSummary">📑 查看全部41篇笔记目录 / View full list of 41 articles</summary>
@@ -87,9 +124,10 @@
             </details>
             <div class="list-item" style="margin-top: 1rem;">
                 <span id="notesPackageLabel">📦 全套笔记 / Full package (41 articles)</span>
-                <a href="https://api.060504.shop/v1/notes/15-5-package" class="buy-btn" target="_blank">购买 / Buy</a>
+                <span class="buy-btn" onclick="showPurchaseModal('15-5-notes', '全套41篇十五五规划笔记', 'Full 41-article 15th Five-Year Plan Notes Package', 'https://api.060504.shop/v1/notes/15-5-package')">购买 / Buy</span>
             </div>
         </div>
+
         <div class="card contact">
             <h2 id="purchaseTitle">💡 购买方式 / How to Purchase</h2>
             <p id="purchaseStep1">1. 点击报告旁的"购买"按钮，通过 x402 协议自动支付（需安装 MetaMask 等钱包）。</p>
@@ -97,11 +135,68 @@
             <p id="purchaseStep3">3. 如遇问题或需要批量采购，请通过 X 私信 <strong>@manniusl</strong> 或邮件 <strong>leizhenbing@126.com</strong> 联系。</p>
             <p id="purchaseNote"><em>批量购买可享折扣，欢迎咨询 / Volume discounts available.</em></p>
         </div>
+
         <footer>
-            © 2026 AgentBridge  数据持续更新 / Data continuously updated  All rights reserved
+            © 2026 AgentBridge · 数据持续更新 / Data continuously updated · All rights reserved
         </footer>
     </div>
+
+    <!-- 购买引导弹窗 -->
+    <div class="modal-overlay" id="purchaseModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">💳 购买指引 / Purchase Guide</h3>
+                <button class="modal-close" onclick="closeModal()" title="关闭 / Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- 商品信息 -->
+                <div class="modal-product">
+                    <div class="product-name" id="modalProductName">-</div>
+                    <div class="product-price" id="modalProductPrice">90 USDC</div>
+                </div>
+
+                <!-- 步骤指引 -->
+                <ol class="step-list" id="modalSteps">
+                    <li data-step="1" id="modalStep1">本商品通过 <strong>x402 协议</strong>自动支付，需要加密钱包支持。<br>This product uses <strong>x402 protocol</strong> for auto-payment. A crypto wallet is required.</li>
+                    <li data-step="2" id="modalStep2">如果你已安装 <a href="https://metamask.io" target="_blank">MetaMask</a> 等钱包，请确保：<br>• 钱包已解锁（unlocked）<br>• 已切换到 <strong>Base</strong> 网络<br>• 钱包中有足够的 <strong>USDC</strong>（Base链）<br><br>If you have <a href="https://metamask.io" target="_blank">MetaMask</a> installed, make sure:<br>• Wallet is unlocked<br>• Switched to <strong>Base</strong> network<br>• Sufficient <strong>USDC</strong> (Base) balance</li>
+                    <li data-step="3" id="modalStep3">点击下方"前往支付"按钮，钱包会自动弹出支付确认。<br>Click "Proceed to Pay" below — your wallet will pop up a payment confirmation.</li>
+                    <li data-step="4" id="modalStep4">确认支付后，PDF 文件将自动下载到你的设备。<br>After confirming, the PDF file will download automatically.</li>
+                </ol>
+
+                <!-- 操作按钮 -->
+                <div class="modal-actions">
+                    <button class="btn-primary" id="modalPayBtn" onclick="proceedToPay()">🚀 前往支付 / Proceed to Pay</button>
+                    <button class="btn-back" onclick="closeModal()">← 返回主页 / Back to Home</button>
+                </div>
+
+                <div class="modal-note" id="modalNote">
+                    💡 <strong>没有钱包？</strong> 没关系！你可以通过 X 私信 <strong>@manniusl</strong> 或邮件 <strong>leizhenbing@126.com</strong> 联系我们手动购买。<br>
+                    <strong>No wallet?</strong> No problem! DM <strong>@manniusl</strong> on X or email <strong>leizhenbing@126.com</strong> for manual purchase.
+                </div>
+
+                <hr class="modal-divider">
+
+                <!-- FAQ -->
+                <div class="modal-faq">
+                    <details>
+                        <summary id="faq1Title">❓ 什么是 x402 支付？/ What is x402 payment?</summary>
+                        <p id="faq1Text">x402 是一种互联网原生支付协议。当你点击购买时，钱包会自动处理支付，无需注册账号或填写表单。支付使用 USDC 稳定币（Base 链），安全快捷。<br>x402 is an internet-native payment protocol. When you click Buy, your wallet handles the payment automatically — no sign-up or forms needed. Uses USDC stablecoin on Base chain.</p>
+                    </details>
+                    <details>
+                        <summary id="faq2Title">❓ 如何获取 USDC？/ How to get USDC?</summary>
+                        <p id="faq2Text">在 MetaMask 中，切换到 Base 网络，然后通过交易所（如 Binance、Coinbase）购买 USDC 并提现到你的钱包地址。<br>In MetaMask, switch to Base network, then buy USDC on an exchange (Binance, Coinbase) and withdraw to your wallet address.</p>
+                    </details>
+                    <details>
+                        <summary id="faq3Title">❓ 支付失败怎么办？/ What if payment fails?</summary>
+                        <p id="faq3Text">请检查：①钱包是否切换到 Base 网络 ②USDC 余额是否足够（至少 90 USDC）③钱包是否已解锁。如仍有问题，请联系我们手动处理。<br>Please check: ①Wallet is on Base network ②USDC balance >= 90 ③Wallet is unlocked. If issues persist, contact us for manual processing.</p>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // ====== DATA ======
         const employmentSchools = [
             { id: 'S001', cn: '内蒙古科技大学', en: 'Inner Mongolia University of Science and Technology' },
             { id: 'S002', cn: '东北电力大学', en: 'Northeast Electric Power University' },
@@ -143,16 +238,6 @@
             { id: 'C009', schoolCn: '华北水利水电大学', collegeCn: '机械学院', schoolEn: 'North China University of Water Resources and Electric Power', collegeEn: 'School of Mechanical Engineering' },
             { id: 'C010', schoolCn: '华北水利水电大学', collegeCn: '电子工程学院', schoolEn: 'North China University of Water Resources and Electric Power', collegeEn: 'School of Electronic Engineering' },
             { id: 'C011', schoolCn: '河南工程学院', collegeCn: '商学院', schoolEn: 'Henan University of Engineering', collegeEn: 'Business School' }
-        ];
-        const teachingDimensions = [
-            { key: 'faculty', cn: '师资队伍与教学投入', en: 'Faculty & Teaching Investment' },
-            { key: 'resources', cn: '教学资源与设施', en: 'Teaching Resources & Facilities' },
-            { key: 'quality', cn: '教学质量保障', en: 'Teaching Quality Assurance' },
-            { key: 'innovation', cn: '教学改革与创新', en: 'Teaching Reform & Innovation' },
-            { key: 'students', cn: '学生发展与支持', en: 'Student Development & Support' },
-            { key: 'employment', cn: '就业与升学', en: 'Employment & Further Education' },
-            { key: 'research', cn: '科研与学术', en: 'Research & Academics' },
-            { key: 'international', cn: '国际交流与合作', en: 'International Exchange & Cooperation' }
         ];
         const noteTitles = [
             `准备在上海发展的考生，2026年高考志愿填报时应重点关注上海十五五规划的内容及报考建议`,
@@ -197,33 +282,79 @@
             `\u201c十五五\u201d规划中被列为重点支持的高校有哪些？具体有哪些政策倾斜（如科研经费、实验室建设）？`,
             `如何利用地方专项计划报考省内优势产业对应的大学？`
         ];
+
+        // ====== 购买弹窗 ======
+        let currentPayUrl = '';
+
+        function showPurchaseModal(type, nameCn, nameEn, payUrl) {
+            currentPayUrl = payUrl;
+            const isEn = currentLang === 'en';
+            document.getElementById('modalProductName').textContent = isEn ? nameEn : nameCn;
+            document.getElementById('modalProductPrice').textContent = '90 USDC';
+            document.getElementById('purchaseModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('purchaseModal').classList.remove('active');
+            document.body.style.overflow = '';
+            currentPayUrl = '';
+        }
+
+        function proceedToPay() {
+            if (currentPayUrl) {
+                window.open(currentPayUrl, '_blank');
+            }
+            closeModal();
+        }
+
+        // 点击遮罩层关闭弹窗
+        document.getElementById('purchaseModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // ESC 关闭弹窗
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // ====== 语言切换 ======
         let currentLang = 'zh';
+
         function toggleLang() {
             currentLang = currentLang === 'zh' ? 'en' : 'zh';
-            document.getElementById('langBtn').textContent = currentLang === 'zh' ? 'EN' : '中文';
+            document.getElementById('langBtn').textContent = currentLang === 'zh' ? 'EN' : '\u4e2d\u6587';
             updateUIText();
         }
+
         function updateUIText() {
             const isEn = currentLang === 'en';
-            document.getElementById('headerTitle').textContent = isEn ? 'China University Education Intelligence (CUEI)' : '中国高校教育情报 (CUEI)';
-            document.getElementById('headerSubtitle').textContent = isEn ? 'Professional Data Service for Higher Education' : '高等教育专业数据服务';
-            document.getElementById('employmentDesc').textContent = isEn ? '✅ Available schools  click "Buy" for x402 auto-payment' : '✅ 已上线学校列表，点击"购买"通过 x402 自动支付';
-            document.getElementById('teachingDesc').textContent = isEn ? '✅ Available colleges  click "Buy" for x402 auto-payment (full 8 dimensions)' : '✅ 已上线学院列表，点击"购买"通过 x402 自动支付（完整8个维度）';
-            document.getElementById('purchaseStep1').textContent = isEn ? '1. Click the "Buy" button next to any report to pay via x402 protocol (MetaMask or compatible wallet required).' : '1. 点击报告旁的"购买"按钮，通过 x402 协议自动支付（需安装 MetaMask 等钱包）。';
-            document.getElementById('purchaseStep2').textContent = isEn ? '2. After successful payment, the system will automatically download the PDF file.' : '2. 支付成功后，系统将自动下载 PDF 文件。';
-            document.getElementById('purchaseStep3').textContent = isEn ? '3. For issues or bulk orders, DM @manniusl on X or email leizhenbing@126.com.' : '3. 如遇问题或需要批量采购，请通过 X 私信 @manniusl 或邮件 leizhenbing@126.com 联系。';
-            document.getElementById('purchaseNote').innerHTML = isEn ? '<em>Volume discounts available / 批量购买可享折扣，欢迎咨询</em>' : '<em>批量购买可享折扣，欢迎咨询 / Volume discounts available.</em>';
+            document.getElementById('headerTitle').textContent = isEn ? 'China University Education Intelligence (CUEI)' : '\u4e2d\u56fd\u9ad8\u6821\u6559\u80b2\u60c5\u62a5 (CUEI)';
+            document.getElementById('headerSubtitle').textContent = isEn ? 'Professional Data Service for Higher Education' : '\u9ad8\u7b49\u6559\u80b2\u4e13\u4e1a\u6570\u636e\u670d\u52a1';
+            document.getElementById('employmentDesc').textContent = isEn ? '\u2705 Available schools \u2013 click "Buy" for x402 auto-payment' : '\u2705 \u5df2\u4e0a\u7ebf\u5b66\u6821\u5217\u8868\uff0c\u70b9\u51fb\u201c\u8d2d\u4e70\u201d\u901a\u8fc7 x402 \u81ea\u52a8\u652f\u4ed8';
+            document.getElementById('teachingDesc').textContent = isEn ? '\u2705 Available colleges \u2013 click "Buy" for x402 auto-payment (full 8 dimensions)' : '\u2705 \u5df2\u4e0a\u7ebf\u5b66\u9662\u5217\u8868\uff0c\u70b9\u51fb\u201c\u8d2d\u4e70\u201d\u901a\u8fc7 x402 \u81ea\u52a8\u652f\u4ed8\uff08\u5b8c\u65748\u4e2a\u7ef4\u5ea6\uff09';
+            document.getElementById('purchaseStep1').textContent = isEn ? '1. Click the "Buy" button next to any report to pay via x402 protocol (MetaMask or compatible wallet required).' : '1. \u70b9\u51fb\u62a5\u544a\u65c1\u7684\u201c\u8d2d\u4e70\u201d\u6309\u94ae\uff0c\u901a\u8fc7 x402 \u534f\u8bae\u81ea\u52a8\u652f\u4ed8\uff08\u9700\u5b89\u88c5 MetaMask \u7b49\u94b1\u5305\uff09\u3002';
+            document.getElementById('purchaseStep2').textContent = isEn ? '2. After successful payment, the system will automatically download the PDF file.' : '2. \u652f\u4ed8\u6210\u529f\u540e\uff0c\u7cfb\u7edf\u5c06\u81ea\u52a8\u4e0b\u8f7d PDF \u6587\u4ef6\u3002';
+            document.getElementById('purchaseStep3').textContent = isEn ? '3. For issues or bulk orders, DM @manniusl on X or email leizhenbing@126.com.' : '3. \u5982\u9047\u95ee\u9898\u6216\u9700\u8981\u6279\u91cf\u91c7\u8d2d\uff0c\u8bf7\u901a\u8fc7 X \u79c1\u4fe1 @manniusl \u6216\u90ae\u4ef6 leizhenbing@126.com \u8054\u7cfb\u3002';
+            document.getElementById('purchaseNote').innerHTML = isEn ? '<em>Volume discounts available / \u6279\u91cf\u8d2d\u4e70\u53ef\u4eab\u6298\u6263\uff0c\u6b22\u8fce\u54a8\u8be2</em>' : '<em>\u6279\u91cf\u8d2d\u4e70\u53ef\u4eab\u6298\u6263\uff0c\u6b22\u8fce\u54a8\u8be2 / Volume discounts available.</em>';
         }
+
+        // ====== RENDER ======
         function renderEmploymentList() {
             const container = document.getElementById('employment-list');
             container.innerHTML = '';
             employmentSchools.forEach(school => {
                 const div = document.createElement('div');
                 div.className = 'list-item';
-                div.innerHTML = '<span>' + school.cn + ' (' + school.en + ')</span><a href="https://api.060504.shop/v1/reports/employment/' + school.id + '" class="buy-btn" target="_blank">购买 / Buy</a>';
+                const nameCn = school.cn + ' 2025\u5c4a\u6bd5\u4e1a\u751f\u5c31\u4e1a\u8d28\u91cf\u62a5\u544a';
+                const nameEn = '2025 Employment Report - ' + school.en;
+                const url = 'https://api.060504.shop/v1/reports/employment/' + school.id;
+                div.innerHTML = '<span>' + school.cn + ' (' + school.en + ')</span>'
+                    + '<span class="buy-btn" onclick="showPurchaseModal(\'employment\',\'' + nameCn.replace(/'/g, "\\'") + '\',\'' + nameEn.replace(/'/g, "\\'") + '\',\'' + url + '\')">\u8d2d\u4e70 / Buy</span>';
                 container.appendChild(div);
             });
         }
+
         function renderTeachingList() {
             const container = document.getElementById('teaching-list');
             container.innerHTML = '';
@@ -243,22 +374,30 @@
                     const colDiv = document.createElement('div');
                     colDiv.className = 'list-item';
                     colDiv.style.marginTop = '0.3rem';
-                    colDiv.innerHTML = '<span>' + col.cn + ' (' + col.en + ')</span><a href="https://api.060504.shop/v1/reports/teaching/' + col.id + '/all" class="buy-btn" target="_blank">购买 / Buy</a>';
+                    const nameCn = data.schoolCn + col.cn + ' 2024-2025\u672c\u79d1\u6559\u5b66\u8d28\u91cf\u62a5\u544a';
+                    const nameEn = 'Teaching Report - ' + schoolEn + ' ' + col.en;
+                    const url = 'https://api.060504.shop/v1/reports/teaching/' + col.id + '/all';
+                    colDiv.innerHTML = '<span>' + col.cn + ' (' + col.en + ')</span>'
+                        + '<span class="buy-btn" onclick="showPurchaseModal(\'teaching\',\'' + nameCn.replace(/'/g, "\\'") + '\',\'' + nameEn.replace(/'/g, "\\'") + '\',\'' + url + '\')">\u8d2d\u4e70 / Buy</span>';
                     details.appendChild(colDiv);
                 });
                 container.appendChild(details);
             }
         }
+
         function renderNoteList() {
             const container = document.getElementById('note-list');
             container.innerHTML = '';
             noteTitles.forEach((title, idx) => {
                 const div = document.createElement('div');
                 div.className = 'note-item';
-                div.innerHTML = '<span>' + (idx + 1) + '. ' + title + '</span><a href="https://api.060504.shop/v1/notes/15-5-package" class="buy-btn" target="_blank">购买 / Buy</a>';
+                div.innerHTML = '<span>' + (idx + 1) + '. ' + title + '</span>'
+                    + '<span class="buy-btn" onclick="showPurchaseModal(\'notes\',\'' + title.substring(0, 20).replace(/'/g, "\\'") + '...\',\'Note #' + (idx+1) + '\',\'https://api.060504.shop/v1/notes/15-5-package\')">\u8d2d\u4e70 / Buy</span>';
                 container.appendChild(div);
             });
         }
+
+        // ====== INIT ======
         renderEmploymentList();
         renderTeachingList();
         renderNoteList();
