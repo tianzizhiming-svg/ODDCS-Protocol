@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CUEI - China University Education Intelligence</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f5f7fa; color: #1a2c3e; }
         .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
@@ -16,6 +17,13 @@
         .samples { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin: 2rem 0; }
         .sample { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 1rem; text-align: center; width: 220px; }
         .sample a { text-decoration: none; color: #0a5e8c; font-weight: 500; }
+        .sample-group { margin-bottom: 1.5rem; }
+        .sample-group-title { font-weight: 600; color: #1a2c3e; margin-bottom: 0.6rem; font-size: 0.95rem; }
+        .sample-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.8rem; }
+        .sample-item { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 0.6rem 0.8rem; font-size: 0.85rem; }
+        .sample-item a { text-decoration: none; color: #0a5e8c; }
+        .sample-item a:hover { text-decoration: underline; }
+        .sample-item .sample-num { color: #0a5e8c; font-weight: 700; margin-right: 0.3rem; }
         .school-list, .college-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 0.8rem; margin-top: 1rem; }
         .list-item { background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; }
         .buy-btn { background-color: #0a5e8c; color: white; padding: 0.2rem 0.8rem; border-radius: 20px; text-decoration: none; font-size: 0.8rem; cursor: pointer; }
@@ -62,6 +70,11 @@
         .modal-faq { font-size: 0.85rem; color: #495057; }
         .modal-faq summary { font-weight: 600; color: #1a2c3e; margin-bottom: 0.3rem; }
         .modal-faq p { margin: 0 0 0.8rem 0; }
+        .qr-section { text-align: center; margin: 1.2rem 0; }
+        .qr-section .qr-hint { font-size: 0.85rem; color: #495057; margin-bottom: 0.6rem; }
+        .qr-section .qr-wrapper { display: inline-block; padding: 12px; background: white; border: 2px solid #e9ecef; border-radius: 12px; }
+        .qr-section .qr-wrapper img { display: block; }
+        .qr-section .qr-note { font-size: 0.78rem; color: #6c757d; margin-top: 0.5rem; }
     </style>
 </head>
 <body>
@@ -90,16 +103,36 @@
         <div class="card">
             <h2 id="sampleTitle">📥 免费样本 / Free Samples</h2>
             <p id="sampleDesc">下载完整报告以评估质量 / Download full reports to evaluate quality:</p>
-            <div class="samples">
-                <div class="sample">
-                    <a href="samples/西安交通大学2025毕业生就业质量报告.pdf" target="_blank">西安交通大学 Xi'an Jiaotong University<br>就业报告样本 Employment Sample</a>
+
+            <!-- 就业报告样本 -->
+            <div class="sample-group">
+                <div class="sample-group-title">📋 就业报告样本 / Employment Report Samples (2025届)</div>
+                <div class="samples">
+                    <div class="sample">
+                        <a href="samples/西安交通大学2025毕业生就业质量报告.pdf" target="_blank">西安交通大学 Xi'an Jiaotong University<br>2025届就业报告</a>
+                    </div>
+                    <div class="sample">
+                        <a href="samples/广州南方学院2025毕业生就业质量报告.pdf" target="_blank">广州南方学院 Guangzhou Nanfang College<br>2025届就业报告</a>
+                    </div>
                 </div>
-                <div class="sample">
-                    <a href="samples/广州南方学院2025毕业生就业质量报告.pdf" target="_blank">广州南方学院 Guangzhou Nanfang College<br>就业报告样本 Employment Sample</a>
-                </div>
-                <div class="sample">
-                    <a href="samples/上海交通大学医学院2024-2025本科教学质量报告及深度解读/01-师资队伍与教学投入.pdf" target="_blank">上海交通大学医学院 Shanghai Jiao Tong University<br>教学报告样本 Teaching Sample (Faculty)</a>
-                </div>
+            </div>
+
+            <!-- 教学报告样本 - 折叠目录 -->
+            <div class="sample-group">
+                <details>
+                    <summary class="sample-group-title">📚 教学报告样本 / Teaching Report Samples (2024-2025学年) — 上海交通大学医学院</summary>
+                    <div style="font-size:0.85rem;color:#495057;margin:0.5rem 0;">Shanghai Jiao Tong University School of Medicine — 完整8个维度 / Full 8 dimensions:</div>
+                    <div class="sample-grid">
+                        <div class="sample-item"><span class="sample-num">01</span><a href="samples/上海交通大学医学院2024-2025本科教学质量报告及深度解读/01-师资队伍与教学投入.pdf" target="_blank">师资队伍与教学投入<br><small>Faculty & Teaching Investment</small></a></div>
+                        <div class="sample-item"><span class="sample-num">02</span><a href="samples/上海交通大学医学院2024-2025本科教学质量报告及深度解读/02-生源质量与培养规模.pdf" target="_blank">生源质量与培养规模<br><small>Student Quality & Training Scale</small></a></div>
+                        <div class="sample-item"><span class="sample-num">03</span><a href="samples/上海交通大学医学院2024-2025本科教学质量报告及深度解读/03-教学经费与硬件资源.pdf" target="_blank">教学经费与硬件资源<br><small>Teaching Funds & Hardware Resources</small></a></div>
+                        <div class="sample-item"><span class="sample-num">04</span><a href="samples/上海交通大学医学院2024-2025本科教学质量报告及深度解读/04-课程设置与教学实施.pdf" target="_blank">课程设置与教学实施<br><small>Curriculum & Teaching Implementation</small></a></div>
+                        <div class="sample-item"><span class="sample-num">05</span><a href="samples/上海交通大学医学院2024-2025本科教学质量报告及深度解读/05-学生发展与学业支持.pdf" target="_blank">学生发展与学业支持<br><small>Student Development & Academic Support</small></a></div>
+                        <div class="sample-item"><span class="sample-num">06</span><a href="samples/上海交通大学医学院2024-2025本科教学质量报告及深度解读/06-毕业要求与学习成果.pdf" target="_blank">毕业要求与学习成果<br><small>Graduation Requirements & Learning Outcomes</small></a></div>
+                        <div class="sample-item"><span class="sample-num">07</span><a href="samples/上海交通大学医学院2024-2025本科教学质量报告及深度解读/07-就业质量与发展前景.pdf" target="_blank">就业质量与发展前景<br><small>Employment Quality & Development Prospects</small></a></div>
+                        <div class="sample-item"><span class="sample-num">08</span><a href="samples/上海交通大学医学院2024-2025本科教学质量报告及深度解读/08-专业建设质量.pdf" target="_blank">专业建设质量<br><small>Program Construction Quality</small></a></div>
+                    </div>
+                </details>
             </div>
         </div>
 
@@ -162,6 +195,13 @@
                     <li data-step="3" id="modalStep3">点击下方"前往支付"按钮，钱包会自动弹出支付确认。<br>Click "Proceed to Pay" below — your wallet will pop up a payment confirmation.</li>
                     <li data-step="4" id="modalStep4">确认支付后，PDF 文件将自动下载到你的设备。<br>After confirming, the PDF file will download automatically.</li>
                 </ol>
+
+                <!-- 扫码支付 -->
+                <div class="qr-section">
+                    <div class="qr-hint" id="qrHint">📱 手机扫码，快捷支付 / Scan QR code to pay</div>
+                    <div class="qr-wrapper" id="qrCode"></div>
+                    <div class="qr-note">扫码后跳转 x402 支付页面（需安装 MetaMask 钱包）/ Scans to x402 payment page (MetaMask required)</div>
+                </div>
 
                 <!-- 操作按钮 -->
                 <div class="modal-actions">
@@ -285,12 +325,25 @@
 
         // ====== 购买弹窗 ======
         let currentPayUrl = '';
+        let qrInstance = null;
 
         function showPurchaseModal(type, nameCn, nameEn, payUrl) {
             currentPayUrl = payUrl;
             const isEn = currentLang === 'en';
             document.getElementById('modalProductName').textContent = isEn ? nameEn : nameCn;
             document.getElementById('modalProductPrice').textContent = '90 USDC';
+            // 生成二维码
+            const qrContainer = document.getElementById('qrCode');
+            qrContainer.innerHTML = '';
+            if (qrInstance) { qrInstance = null; }
+            qrInstance = new QRCode(qrContainer, {
+                text: payUrl,
+                width: 180,
+                height: 180,
+                colorDark: '#0a2540',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.M
+            });
             document.getElementById('purchaseModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -349,7 +402,7 @@
                 const nameCn = school.cn + ' 2025\u5c4a\u6bd5\u4e1a\u751f\u5c31\u4e1a\u8d28\u91cf\u62a5\u544a';
                 const nameEn = '2025 Employment Report - ' + school.en;
                 const url = 'https://api.060504.shop/v1/reports/employment/' + school.id;
-                div.innerHTML = '<span>' + school.cn + ' (' + school.en + ')</span>'
+                div.innerHTML = '<span>' + school.cn + ' (' + school.en + ') <span style="color:#6c757d;font-size:0.8rem">2025\u5c4a</span></span>'
                     + '<span class="buy-btn" onclick="showPurchaseModal(\'employment\',\'' + nameCn.replace(/'/g, "\\'") + '\',\'' + nameEn.replace(/'/g, "\\'") + '\',\'' + url + '\')">\u8d2d\u4e70 / Buy</span>';
                 container.appendChild(div);
             });
@@ -375,9 +428,9 @@
                     colDiv.className = 'list-item';
                     colDiv.style.marginTop = '0.3rem';
                     const nameCn = data.schoolCn + col.cn + ' 2024-2025\u672c\u79d1\u6559\u5b66\u8d28\u91cf\u62a5\u544a';
-                    const nameEn = 'Teaching Report - ' + schoolEn + ' ' + col.en;
+                    const nameEn = '2024-2025 Teaching Report - ' + schoolEn + ' ' + col.en;
                     const url = 'https://api.060504.shop/v1/reports/teaching/' + col.id + '/all';
-                    colDiv.innerHTML = '<span>' + col.cn + ' (' + col.en + ')</span>'
+                    colDiv.innerHTML = '<span>' + col.cn + ' (' + col.en + ') <span style="color:#6c757d;font-size:0.8rem">2024-2025\u5b66\u5e74</span></span>'
                         + '<span class="buy-btn" onclick="showPurchaseModal(\'teaching\',\'' + nameCn.replace(/'/g, "\\'") + '\',\'' + nameEn.replace(/'/g, "\\'") + '\',\'' + url + '\')">\u8d2d\u4e70 / Buy</span>';
                     details.appendChild(colDiv);
                 });
