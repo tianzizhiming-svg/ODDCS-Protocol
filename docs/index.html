@@ -41,6 +41,8 @@
         .contact { background: #e8f0fe; border-left: 4px solid #0a5e8c; padding: 1rem; margin-top: 2rem; }
         .badge { background-color: #0a5e8c; color: white; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: 0.5rem; }
         footer { text-align: center; margin-top: 3rem; color: #6c757d; font-size: 0.8rem; }
+        .visitor-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: #f0f4f8; border: 1px solid #dee2e6; border-radius: 20px; padding: 0.3rem 0.8rem; font-size: 0.78rem; color: #495057; margin-top: 0.5rem; }
+        .visitor-badge .count { font-weight: 700; color: #0a5e8c; }
         .note-list { margin: 1rem 0 0 1rem; max-height: 400px; overflow-y: auto; border-top: 1px solid #dee2e6; padding-top: 0.5rem; }
         .note-item { font-size: 0.85rem; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; }
         details { margin-bottom: 0.5rem; }
@@ -180,6 +182,8 @@
 
         <footer>
             © 2026 AgentBridge · 数据持续更新 / Data continuously updated · All rights reserved
+            <br>
+            <span class="visitor-badge">👁 <span class="count" id="visitorCount">...</span> 次访问 / visits</span>
         </footer>
     </div>
 
@@ -459,6 +463,18 @@
                 container.appendChild(div);
             });
         }
+
+        // ====== 访问计数器 ======
+        (function() {
+            fetch('https://api.countapi.xyz/hit/agentbridge-cuei/visits')
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('visitorCount').textContent = data.value.toLocaleString();
+                })
+                .catch(() => {
+                    document.getElementById('visitorCount').textContent = '—';
+                });
+        })();
 
         // ====== INIT ======
         renderEmploymentList();
