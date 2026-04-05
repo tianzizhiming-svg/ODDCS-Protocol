@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CUEI - China University Education Intelligence</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300D2FF'/%3E%3Cstop offset='100%25' style='stop-color:%233A7BD5'/%3E%3C/linearGradient%3E%3ClinearGradient id='ac' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FFD700'/%3E%3Cstop offset='100%25' style='stop-color:%23FFA500'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='100' cy='100' r='95' fill='url(%23bg)'/%3E%3Cpolygon points='100,45 40,75 100,105 160,75' fill='white' opacity='0.95'/%3E%3Cpolygon points='100,55 55,78 100,100 145,78' fill='url(%23bg)' opacity='0.3'/%3E%3Cline x1='145' y1='78' x2='155' y2='120' stroke='url(%23ac)' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='155' cy='123' r='5' fill='url(%23ac)'/%3E%3Ccircle cx='70' cy='120' r='4' fill='white' opacity='0.9'/%3E%3Ccircle cx='85' cy='135' r='4' fill='white' opacity='0.9'/%3E%3Ccircle cx='100' cy='128' r='4' fill='white' opacity='0.9'/%3E%3Ccircle cx='115' cy='135' r='4' fill='white' opacity='0.9'/%3E%3Ccircle cx='130' cy='120' r='4' fill='white' opacity='0.9'/%3E%3Cline x1='70' y1='120' x2='85' y2='135' stroke='white' stroke-width='1.5' opacity='0.5'/%3E%3Cline x1='85' y1='135' x2='100' y2='128' stroke='white' stroke-width='1.5' opacity='0.5'/%3E%3Cline x1='100' y1='128' x2='115' y2='135' stroke='white' stroke-width='1.5' opacity='0.5'/%3E%3Cline x1='115' y1='135' x2='130' y2='120' stroke='white' stroke-width='1.5' opacity='0.5'/%3E%3Cpath d='M 80 105 L 80 118 Q 100 130 120 118 L 120 105' fill='none' stroke='white' stroke-width='2.5' opacity='0.8'/%3E%3C/svg%3E">
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RDH05JDY57"></script>
@@ -18,7 +18,8 @@
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f5f7fa; color: #1a2c3e; }
         .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
         header { background: linear-gradient(135deg, #0a2540, #0f3b5c); color: white; padding: 3rem 2rem; text-align: center; }
-        .logo { font-size: 3rem; margin-bottom: 0.5rem; }
+        .logo { margin-bottom: 0.5rem; }
+        .logo img { width: 80px; height: 80px; }
         h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
         .subtitle { font-size: 1.2rem; opacity: 0.9; }
         .card { background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); padding: 1.5rem; margin-bottom: 2rem; }
@@ -89,7 +90,7 @@
     <button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button>
 
     <header>
-        <div class="logo">🎓</div>
+        <div class="logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300D2FF'/%3E%3Cstop offset='100%25' style='stop-color:%233A7BD5'/%3E%3C/linearGradient%3E%3ClinearGradient id='ac' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FFD700'/%3E%3Cstop offset='100%25' style='stop-color:%23FFA500'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='100' cy='100' r='95' fill='url(%23bg)'/%3E%3Cpolygon points='100,45 40,75 100,105 160,75' fill='white' opacity='0.95'/%3E%3Cpolygon points='100,55 55,78 100,100 145,78' fill='url(%23bg)' opacity='0.3'/%3E%3Cline x1='145' y1='78' x2='155' y2='120' stroke='url(%23ac)' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='155' cy='123' r='5' fill='url(%23ac)'/%3E%3Ccircle cx='70' cy='120' r='4' fill='white' opacity='0.9'/%3E%3Ccircle cx='85' cy='135' r='4' fill='white' opacity='0.9'/%3E%3Ccircle cx='100' cy='128' r='4' fill='white' opacity='0.9'/%3E%3Ccircle cx='115' cy='135' r='4' fill='white' opacity='0.9'/%3E%3Ccircle cx='130' cy='120' r='4' fill='white' opacity='0.9'/%3E%3Cline x1='70' y1='120' x2='85' y2='135' stroke='white' stroke-width='1.5' opacity='0.5'/%3E%3Cline x1='85' y1='135' x2='100' y2='128' stroke='white' stroke-width='1.5' opacity='0.5'/%3E%3Cline x1='100' y1='128' x2='115' y2='135' stroke='white' stroke-width='1.5' opacity='0.5'/%3E%3Cline x1='115' y1='135' x2='130' y2='120' stroke='white' stroke-width='1.5' opacity='0.5'/%3E%3Cpath d='M 80 105 L 80 118 Q 100 130 120 118 L 120 105' fill='none' stroke='white' stroke-width='2.5' opacity='0.8'/%3E%3C/svg%3E" alt="CUEI Logo"></div>
         <h1 id="headerTitle">China University Education Intelligence (CUEI)</h1>
         <div class="subtitle" id="headerSubtitle">Professional Data Service for Higher Education</div>
     </header>
