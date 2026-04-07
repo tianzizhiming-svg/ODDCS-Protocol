@@ -54,8 +54,10 @@ It converts messy web pages into clean, token-efficient Markdown — no API keys
 ## Resources
 
 - [Medium Articles](https://medium.com/@leizhenbing)
+- [The Man Who Broke the Information Gap](https://medium.com/@leizhenbing/the-man-who-broke-the-information-gap-c657c9564d86)
 - [AgentBridge: Building a Pay-Per-Fetch Gateway for AI Agents on Base](https://medium.com/@leizhenbing/agentbridge-building-a-pay-per-fetch-gateway-for-ai-agents-on-base)
 - [How AI Agents Can Legally Access Chinese Public Data](https://medium.com/p/6e956b24e4c1)
+- [AgentBridge: The Missing Data Layer for AI Agents Targeting China](https://medium.com/@leizhenbing/agentbridge-the-missing-data-layer-for-ai-agents-targeting-china-8ba58f8ef795)
 
 ---
 ## Disclaimer
