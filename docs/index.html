@@ -488,10 +488,10 @@
 
         // ====== 访问计数器 ======
         (function() {
-            fetch('https://api.countapi.xyz/hit/agentbridge-cuei/visits')
+            fetch('https://api.counterapi.dev/v1/agentbridge-cuei/visits/up')
                 .then(r => r.json())
                 .then(data => {
-                    document.getElementById('visitorCount').textContent = data.value.toLocaleString();
+                    document.getElementById('visitorCount').textContent = data.count.toLocaleString();
                 })
                 .catch(() => {
                     document.getElementById('visitorCount').textContent = '—';
